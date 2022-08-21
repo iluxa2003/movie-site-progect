@@ -1,14 +1,19 @@
+import "./MovieCard.css";
+
 const MovieCard = (props) => {
   return (
-    <li>
-      <figure>
+    <li className="movie-card">
+      <figure className="movie-card__figure">
         <img
-          src={"https://www.themoviedb.org/t/p/w300_and_h450_bestv2"+props.url}
+          className="movie-card__img"
+          src={
+            "https://www.themoviedb.org/t/p/w300_and_h450_bestv2" + props.url
+          }
           alt="nothing"
           loading="lazy"
         />
-        <figcaption>
-          <p>123</p>
+        <figcaption className="movie-card__figcaption">
+          <p>{props.name}</p>
         </figcaption>
       </figure>
     </li>
