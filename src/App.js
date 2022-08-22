@@ -12,15 +12,10 @@ function App() {
 
   return (
     <Router>
-      <div>
-        <header></header>
-        <main>
           <Routes>
             <Route path="/movie:id" element={<MovieDetails />} />
             <Route path="" element={<MainPage/>} />
           </Routes>
-        </main>
-      </div>
     </Router>
   );
 }
