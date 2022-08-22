@@ -1,30 +1,27 @@
-import React, { useState } from "react";
-import { Route, Switch } from "react-router-dom";
-import MovieList from "./components/MovieList";
-import useFetchTrends from "./fetches/moviesFetch";
-// const DummyData = [];
 
+import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
+
+import MovieDetails from "./pages/MovieDetails";
+import MainPage from "./pages/MainPage"
 function App() {
-  const [movies, setMovies] = useState([]);
-  useFetchTrends().then((response) => {
-    return setMovies(response.results);
-  });
+  // FetchTrends().then((response) => {
+  //   return setMovies(response.results);
+  //   // return console.log(response.results);
+  // });
+
 
   return (
-    <div>
-      <header></header>
-      <main>
-        <Switch>
-          <Route>
-            
-          </Route>
-          <Route>
-            
-          </Route>
-        </Switch>
-        <MovieList items={movies} />
-      </main>
-    </div>
+    <Router>
+      <div>
+        <header></header>
+        <main>
+          <Routes>
+            <Route path="/movie:id" element={<MovieDetails />} />
+            <Route path="" element={<MainPage/>} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   );
 }
 

@@ -8,7 +8,14 @@ const MovieList = (props) => {
     <section>
       <ul className="movie-list">
         {props.items.map((item) => {
-          return <MovieCard url={item.poster_path} name={item.name || item.title} key={item.id}/>;
+          return (
+            <MovieCard
+              url={item.poster_path}
+              name={item.name || item.title}
+              id={item.id}
+              key={item.id}
+            />
+          );
         })}
       </ul>
     </section>
