@@ -1,6 +1,5 @@
+
 .movie-card{
-    /* display: none; */
-    /* height: 300px; */
     width: 240px;
     box-sizing: border-box;
     margin-bottom: 30px;
@@ -18,7 +17,6 @@
     padding: 5px;
     height: 50px;
     
-    /* background-color:rgb(226, 222, 217); */
 }
 .movie-card__img{
     vertical-align: top;

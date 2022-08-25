@@ -1,0 +1,40 @@
+figure{
+    margin: 0;
+
+}
+p{
+    margin: 0;
+}
+.actor-card{
+    box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+    min-width: 140px;
+    width: 140px;
+    background-color: #fff;
+    list-style: none;
+    font-size: 0.9em;
+    margin: 10px;
+    border-radius: 6px;
+    background-color: #373B69;
+    color: white;
+}
+.actor-card__image{
+    min-width: 140px;
+    width: 140px;
+    height: 210px;
+    vertical-align: top;
+    border-radius: 6px;
+}
+.actor-card__description{
+    height: 60px;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+/* .actor-card__description:first-child{
+    font-weight: bold;
+} */
+p:first-child{
+    font-weight: bold;
+}

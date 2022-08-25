@@ -1,6 +1,7 @@
 import FetchTrends from "../fetches/moviesFetch";
 import React, { useState, useEffect } from "react";
 import MovieList from "../components/MovieList";
+import Header from "../components/Header/Header"
 const MainPage = () => {
   const [movies, setMovies] = useState([]);
   useEffect(() => {
@@ -10,7 +11,7 @@ const MainPage = () => {
   }, []);
   return (
     <div>
-      <header></header>
+      <Header/>
       <main>
         <MovieList items={movies} />
       </main>

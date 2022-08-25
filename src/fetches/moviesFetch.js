@@ -8,6 +8,7 @@ const FetchTrends = () => {
   ).then((response) => {
     return response.json();
   });
+  
 
 
   // const [movies, setMovies] = useState([]);
