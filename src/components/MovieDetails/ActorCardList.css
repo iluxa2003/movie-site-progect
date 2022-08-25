@@ -1,5 +1,31 @@
 .actor-card-list{
+
+    max-width: 500px;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    
     padding: 10px;
     display:flex;
     flex-direction: row;
+    background-color: grey;
 }
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }

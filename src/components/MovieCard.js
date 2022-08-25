@@ -3,7 +3,7 @@ import "./MovieCard.css";
 
 const MovieCard = (props) => {
   return (
-    <Link to={"movie"+props.id}>
+    <Link to={"movie"+"/"+props.id}>
       <li className="movie-card">
         <figure className="movie-card__figure">
           <img
