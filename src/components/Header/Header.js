@@ -1,8 +1,9 @@
 import "./Header.css"
+import Search from "./Search";
 const Header = () => {
     return(
         <header className="header">
-            <div>loremloremloremvvvloremlorem</div>
+            <Search/>
             <div>loremloremloremloremloremloremlorem</div>
         </header>
     );
