@@ -7,7 +7,7 @@ const ActorCardList = (props) => {
 
 
   return (
-    <ul className="actor-card-list">
+    <ul className={"actor-card-list "+props.className}>
       {props.actors.map((actor) => {
         return (
           <ActorCard

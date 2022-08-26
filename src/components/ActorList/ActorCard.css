@@ -7,21 +7,17 @@ p{
 }
 .actor-card{
     box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
-    min-width: 140px;
     width: 140px;
-    background-color: #fff;
     list-style: none;
     font-size: 0.9em;
     margin: 10px;
     border-radius: 6px;
     background-color: #373B69;
-    color: white;
     text-decoration: none;
 }
 .actor-card__image{
-    min-width: 140px;
-    width: 140px;
-    height: 210px;
+    width: 138px;
+    height: 175px;
     vertical-align: top;
     border-radius: 6px;
 }
@@ -32,6 +28,7 @@ p{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    color: white;
 }
 /* .actor-card__description:first-child{
     font-weight: bold;

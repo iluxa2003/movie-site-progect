@@ -1,0 +1,57 @@
+.tv-main__bg-image {
+    background-position-x: right -200px;
+    background-position-y: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    padding: 0;
+  }
+  .tv-main__wrapper {
+    padding: 120px;
+    background: rgba(47, 48, 58, 0.4);
+  }
+  .tv-main__figure {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  /* h1{
+      font-style: italic;
+  } */
+  .tv-main__tagline {
+    font-style: italic;
+  }
+  .tv-main__type {
+    color: lightgrey;
+    border: 2px solid grey;
+    padding: 1px;
+  }
+  .tv-main__list {
+    list-style: none;
+    display: flex;
+  }
+  .tv-main__list-item {
+    margin-right: 4px;
+  }
+  .tv-main__right-side {
+    padding: 25px;
+    background-color: lightgrey;
+    border-radius: 10px;
+  }
+  .tv-main__right-side-list {
+    list-style: none;
+    padding: 0;
+  }
+  .tv-main__special-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .tv-main__actors{
+      max-width:100% !important;
+  }
+  .tv-main__image{
+    margin-right: 10px;
+    border-radius: 5px;
+  }

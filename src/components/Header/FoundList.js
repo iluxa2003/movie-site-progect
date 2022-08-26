@@ -5,8 +5,6 @@ const FoundList = (props) => {
       {props.found.map((item) => {
         return <FoundItem item={item} key={item.id}/>;
       })}
-
-      {console.log(props.found)}
     </ul>
   );
 };

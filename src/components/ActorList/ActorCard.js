@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const ActorCard = (props) => {
   let image = "";
   if (props.img != null) {
-    image = "https://image.tmdb.org/t/p/w300_and_h450_bestv2/" + props.img;
+    image = "https://image.tmdb.org/t/p/w138_and_h175_bestv2/" + props.img;
   } else {
     image =
       "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/694px-Unknown_person.jpg";
@@ -11,10 +11,10 @@ const ActorCard = (props) => {
 
   return (
     <li className="actor-card">
-      <Link to={"../person" + "/" + props.id}>
+      <Link to={"../person/" + props.id}>
         {/* к ../ сам додумался Xdd  */}
         <figure>
-          <img className="actor-card__image" src={image}></img>
+          <img className="actor-card__image" src={image} alt={image}></img>
           <figcaption className="actor-card__description">
             <p>{props.name}</p>
             <p>{props.character}</p>
