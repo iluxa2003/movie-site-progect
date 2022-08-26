@@ -12,6 +12,7 @@ const MovieList = (props) => {
             <MovieCard
               url={item.poster_path}
               name={item.name || item.title}
+              type={item.media_type}
               id={item.id}
               key={item.id}
             />

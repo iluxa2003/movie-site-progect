@@ -1,21 +1,23 @@
-
 import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 
 import MovieDetails from "./pages/MovieDetails";
-import MainPage from "./pages/MainPage"
+import MainPage from "./pages/MainPage";
+import TvPage from "./pages/TvPage";
+import ActorPage from "./pages/ActorPage";
 function App() {
   // FetchTrends().then((response) => {
   //   return setMovies(response.results);
   //   // return console.log(response.results);
   // });
 
-
   return (
     <Router>
-          <Routes>
-            <Route path="/movie/:id" element={<MovieDetails />} />
-            <Route path="" element={<MainPage/>} />
-          </Routes>
+      <Routes>
+        <Route path="/person/:id" element={<ActorPage />} />
+        <Route path="/tv/:id" element={<TvPage />} />
+        <Route path="/movie/:id" element={<MovieDetails />} />
+        <Route path="" element={<MainPage />} />
+      </Routes>
     </Router>
   );
 }

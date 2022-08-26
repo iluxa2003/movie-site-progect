@@ -1,6 +1,6 @@
 import FetchTrends from "../fetches/moviesFetch";
 import React, { useState, useEffect } from "react";
-import MovieList from "../components/MovieList";
+import MovieList from "../components/MainPage/MovieList";
 import Header from "../components/Header/Header"
 const MainPage = () => {
   const [movies, setMovies] = useState([]);

@@ -13,6 +13,7 @@ outline: 0px;
 }
 .search:focus-within .search__found-list{
     opacity: 1;
+    z-index: 1;
     }
 .search__underline{
 
@@ -22,6 +23,7 @@ outline: 0px;
     height: 1px;
 }
 .search__found-list{
+    z-index: -1;
     opacity: 0;
     position: absolute;
     list-style: none;
@@ -32,6 +34,8 @@ outline: 0px;
     left: 0;
     margin-bottom: 0px;
     /* visibility: hidden; */
-
+    border-radius: 3px;
+    border:2px solid #3053a0;
+    border-top: 0px;
     /* margin: 0px; */
 }

@@ -14,6 +14,7 @@ const ActorCardList = (props) => {
             name={actor.original_name || actor.name}
             img={actor.profile_path}
             character={actor.character}
+            id={actor.id}
             key={actor.id}
           />
         );

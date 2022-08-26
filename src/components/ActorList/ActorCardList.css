@@ -7,7 +7,7 @@
     padding: 10px;
     display:flex;
     flex-direction: row;
-    background-color: grey;
+    /* background-color: grey; */
 }
 /* width */
 ::-webkit-scrollbar {
@@ -16,13 +16,14 @@
   
   /* Track */
   ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    /* background: #f1f1f1; */
   }
   
   /* Handle */
   ::-webkit-scrollbar-thumb {
     border-radius: 20px;
-    background: #888;
+    /* background: #888; */
+    background: red;
   }
   
   /* Handle on hover */
