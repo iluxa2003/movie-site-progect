@@ -12,7 +12,7 @@ const MovieMain = (props) => {
     if (info.length !== 0) {
       setGenres(info.genres);
       setCompanies(info.production_companies);
-      if (info.poster_path !== null) {
+      if (info.backdrop_path !== null) {
         setBackgroundImage(
           "url(https://www.themoviedb.org/t/p/w1920_and_h800_bestv2" +
             info.backdrop_path +
