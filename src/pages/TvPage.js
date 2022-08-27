@@ -14,13 +14,13 @@ const TvPage = () =>{
       actorsFetch(id,"tv").then((response) => {
         return setActors(response.cast);
       });
-    });
+    },[id]);
   
     useEffect(() => {
       soloTvFetch(id).then((response) => {
         return setTvInfo(response);
       });
-    });
+    },[id]);
     return(
         <div>
             <Header/>

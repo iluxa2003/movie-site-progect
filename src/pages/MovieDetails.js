@@ -14,13 +14,13 @@ const MovieDetails = (props) => {
     actorsFetch(id,"movie").then((response) => {
       return setActors(response.cast);
     });
-  });
+  },[id]);
 
   useEffect(() => {
     soloMovieFetch(id).then((response) => {
       return setMovieInfo(response);
     });
-  });
+  },[id]);
 
   return (
     <div>

@@ -5,10 +5,7 @@ import MainPage from "./pages/MainPage";
 import TvPage from "./pages/TvPage";
 import ActorPage from "./pages/ActorPage";
 function App() {
-  // FetchTrends().then((response) => {
-  //   return setMovies(response.results);
-  //   // return console.log(response.results);
-  // });
+
 
   return (
     <Router>

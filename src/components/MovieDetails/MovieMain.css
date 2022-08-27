@@ -48,10 +48,12 @@
   flex-direction: row;
   justify-content: space-between;
 }
-.movie-main__actors{
-    max-width:100% !important;
+.movie-main__actors {
+  max-width: 100% !important;
 }
-.movie-main__image{
-    margin-right: 10px;
-    border-radius: 5px;
-  }
+.movie-main__image {
+  width: 350px;
+  height: 450px;
+  margin-right: 10px;
+  border-radius: 5px;
+}

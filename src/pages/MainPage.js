@@ -8,7 +8,7 @@ const MainPage = () => {
     FetchTrends().then((response) => {
       return setMovies(response.results);
     });
-  });
+  },[]);
   return (
     <div>
       <Header/>
