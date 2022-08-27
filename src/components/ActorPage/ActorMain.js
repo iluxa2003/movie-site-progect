@@ -1,5 +1,6 @@
 import "./ActorMain.css";
 import { useEffect, useState } from "react";
+import ActorCreditsList from "./ActorCreditsList";
 const ActorMain = (props) => {
   const info = props.items;
   const [posterImage, setPosterImage] = useState();
@@ -18,13 +19,14 @@ const ActorMain = (props) => {
     }
   }, [info]);
   return (
-    <main>
-      <section>
-        <figure>
-          <img src={posterImage} alt="not found"></img>
-          <figcaption>
-            <h1>Personal information:</h1>
-            <ul>
+    <main className="actor-main">
+      <div className="actor-main__wrapper">
+      <section className="actor-main__left">
+        <figure className="actor-main__left-figure">
+          <img src={posterImage} alt="not found" className="actor-main__actor-image"></img>
+          <figcaption className="actor-main__info">
+            <h1 className="actor-main__info-title">Personal information:</h1>
+            <ul className="actor-main__list">
               <li>
                 <p>Name :</p>
                 <p>{info.name + " (" + info.birthday + ")"}</p>
@@ -45,12 +47,14 @@ const ActorMain = (props) => {
           </figcaption>
         </figure>
       </section>
-      <section>
+      <section className="actor-main__right">
         <div>
           <h3>Biography</h3>
           <h5>{info.biography}</h5>
         </div>
+        <ActorCreditsList id={props.id}/>
       </section>
+      </div>
     </main>
   );
 };

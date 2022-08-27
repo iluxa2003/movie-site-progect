@@ -6,3 +6,15 @@
     background-color: #373B69;
     /* background-color:#191a1d; */
 }
+.header__home-link{
+    color: white;
+    border: 2px solid grey;
+    padding: 5px;
+}
+.header__right{
+    display: flex;
+    flex-direction: row;
+}
+a{
+    color: white;
+}

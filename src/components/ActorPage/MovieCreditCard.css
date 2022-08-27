@@ -1,0 +1,32 @@
+figure{
+    margin: 0;
+
+}
+p{
+    margin: 0;
+}
+.movie-credit-card{
+    box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+    width: 138px;
+    list-style: none;
+    font-size: 0.9em;
+    margin: 10px;
+    border-radius: 6px;
+    background-color: #13688C;
+    text-decoration: none;
+}
+.movie-credit-card__image{
+    width: 138px;
+    height: 175px;
+    vertical-align: top;
+    border-radius: 6px;
+}
+.movie-credit-card__description{
+    /* height: 60px; */
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    color: white;
+}

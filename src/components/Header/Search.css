@@ -18,7 +18,8 @@ outline: 0px;
 .search__underline{
 
     margin-top:3px;
-    background-color: #e90e0e;
+    /* background-color: #e90e0e; */
+    background-color: grey;
     min-width: 296px;
     height: 1px;
 }

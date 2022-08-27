@@ -15,8 +15,7 @@ const ActorPage = () => {
   return (
     <div>
       <Header />
-      <ActorMain items={actor} />
-      {console.log(actor)}
+      <ActorMain items={actor} id={id}/>
     </div>
   );
 };
