@@ -1,23 +1,34 @@
 import "./ActorCard.css";
 import { Link } from "react-router-dom";
+import { useEffect,useState } from "react";
 const ActorCard = (props) => {
-  let image = "";
-  if (props.img != null) {
-    image = "https://image.tmdb.org/t/p/w138_and_h175_bestv2/" + props.img;
-  } else {
-    image =
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/694px-Unknown_person.jpg";
-  }
+
+  const [image, setImage] = useState();
+  const [name, setName] = useState();
+  const [character, setCharacter] = useState();
+  const [id, setId] = useState();
+  useEffect(() => {
+    if (props.info !== undefined) {
+      setName(props.info.name)
+      setCharacter(props.info.character)
+      setId(props.info.id)
+      if (props.info.profile_path != null) {
+        setImage("https://image.tmdb.org/t/p/w138_and_h175_bestv2/" + props.info.profile_path);
+      } else {
+        setImage("https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/694px-Unknown_person.jpg");
+      }
+    }
+  }, [props]);
 
   return (
     <li className="actor-card">
-      <Link to={"../person/" + props.id}>
+      <Link to={"../person/" + id}>
         {/* к ../ сам додумался Xdd  */}
         <figure>
           <img className="actor-card__image" src={image} alt={image}></img>
           <figcaption className="actor-card__description">
-            <p>{props.name}</p>
-            <p>{props.character}</p>
+            <p>{name}</p>
+            <p>{character}</p>
           </figcaption>
         </figure>
       </Link>
