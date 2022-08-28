@@ -5,7 +5,7 @@
   padding: 10px;
   display: flex;
   flex-direction: row;
-  /* background-color: grey; */
+
 }
 
 
@@ -16,13 +16,13 @@
 
 /* Track */
 ::-webkit-scrollbar-track {
-  /* background: #f1f1f1; */
+
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
   border-radius: 20px;
-  /* background: #888; */
+
   background: rgb(243, 195, 195);
 }
 

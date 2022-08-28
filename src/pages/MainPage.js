@@ -1,29 +1,39 @@
 import FetchTrends from "../fetches/moviesFetch";
 import React, { useState, useEffect } from "react";
 import MovieList from "../components/MainPage/MovieList";
-import Header from "../components/Header/Header"
+import Header from "../components/Header/Header";
+import "./MainPage.css";
 const MainPage = () => {
-
-  const [page, setPage] = useState(1)
+  const [page, setPage] = useState(1);
   const [movies, setMovies] = useState([]);
   useEffect(() => {
     FetchTrends(page).then((response) => {
       return setMovies(response.results);
     });
-  },[page]);
+  }, [page]);
 
-  const nextHandler =()=>{
-    setPage(i=>{return i+1});
-  }
-  const prevHandler =()=>{
-    setPage(i=>{return i-1});
-  }
+  const nextHandler = () => {
+    setPage((i) => {
+      return i + 1;
+    });
+  };
+  const prevHandler = () => {
+    setPage((i) => {
+      return i - 1;
+    });
+  };
   return (
     <div>
-      <Header/>
+      <Header />
       <main>
-      <button onClick={prevHandler}>Previous page</button>
-        <button onClick={nextHandler}>Next page</button>
+        <div className="pagination-bottons-wrapper">
+          <button onClick={prevHandler} className="pagination-botton">
+            Previous page
+          </button>
+          <button onClick={nextHandler} className="pagination-botton">
+            Next page
+          </button>
+        </div>
         <MovieList items={movies} />
       </main>
     </div>

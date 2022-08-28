@@ -1,13 +1,31 @@
-import React from "react";
+import { useEffect, useState } from "react";
 import "./MovieList.css";
 import MovieCard from "./MovieCard";
-// import useFetchTrends from "../fetches/moviesFetch";
-
+// import MovieFilter from "./MovieFilter";
 const MovieList = (props) => {
+  const [items, setItems] = useState([]);
+  useEffect(() => {
+    setItems(props.items);
+  }, [props]);
+
+  // const [filteredYear, setFilteredYear] = useState("2020");
+
+  // const filterChangeHandler = (selectedYear) => {
+  //   setFilteredYear(selectedYear);
+  // };
+
+  // const filteredExpenses = items.filter((item) => {
+  //   return item.release_date.getFullYear().toString() === filteredYear;
+  // });
+
   return (
     <section>
+      {/* <MovieFilter
+        selected={filteredYear}
+        onChangeFilter={filterChangeHandler}
+      /> */}
       <ul className="movie-list">
-        {props.items.map((item) => {
+        {items.map((item) => {
           return (
             <MovieCard
               url={item.poster_path}

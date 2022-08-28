@@ -31,7 +31,7 @@ const MovieCreditCard = (props) => {
     }, [info]);
 
   return (
-    <li className="movie-credit-card">
+    <li className="movie-credit-card" id={info.id}>
       <Link to={"../"+media+"/" + id}>
         <figure>
         <img className="movie-credit-card__image" src={posterImage} alt={posterImage}></img>

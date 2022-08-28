@@ -21,39 +21,45 @@ const ActorMain = (props) => {
   return (
     <main className="actor-main">
       <div className="actor-main__wrapper">
-      <section className="actor-main__left">
-        <figure className="actor-main__left-figure">
-          <img src={posterImage} alt="not found" className="actor-main__actor-image"></img>
-          <figcaption className="actor-main__info">
-            <h1 className="actor-main__info-title">Personal information:</h1>
-            <ul className="actor-main__list">
-              <li>
-                <p>Name :</p>
-                <p>{info.name + " (" + info.birthday + ")"}</p>
-              </li>
-              <li>
-                <p>Was born in:</p>
-                <p>{info.place_of_birth}</p>
-              </li>
-              <li>
-                <p>known_for_department</p>
-                <p>{info.known_for_department}</p>
-              </li>
-              <li>
-                <p>Popularity:</p>
-                <p>{info.popularity}</p>
-              </li>
-            </ul>
-          </figcaption>
-        </figure>
-      </section>
-      <section className="actor-main__right">
-        <div>
-          <h3>Biography</h3>
-          <h5>{info.biography}</h5>
-        </div>
-        <ActorCreditsList id={props.id}/>
-      </section>
+        <section className="actor-main__left">
+          <figure className="actor-main__left-figure">
+            <img
+              src={posterImage}
+              alt="not found"
+              className="actor-main__actor-image"
+            ></img>
+            <figcaption className="actor-main__info">
+              <h1 className="actor-main__info-title">Personal information:</h1>
+              <ul className="actor-main__list">
+                <li>
+                  <p>Name :</p>
+                  <p>{info.name + " (" + info.birthday + ")"}</p>
+                </li>
+                <li>
+                  <p>Was born in:</p>
+                  <p>{info.place_of_birth}</p>
+                </li>
+                <li>
+                  <p>known_for_department</p>
+                  <p>{info.known_for_department}</p>
+                </li>
+                <li>
+                  <p>Popularity:</p>
+                  <p>{info.popularity}</p>
+                </li>
+              </ul>
+            </figcaption>
+          </figure>
+        </section>
+        <section className="actor-main__right">
+          <div>
+            <h3>Biography</h3>
+            <h5>{info.biography}</h5>
+          </div>
+          <div>
+            <ActorCreditsList id={props.id} className="actor-main__credit-list"/>
+          </div>
+        </section>
       </div>
     </main>
   );

@@ -4,7 +4,11 @@
     
  
 }
+.actor-main__credit-list{
+    /* max-width: 100% !important; */
+}
 .actor-main__wrapper{
+    /* max-width: 1400px; */
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -12,7 +16,7 @@
     background-color: #373B69;
 }
 .actor-main__left{
-    margin-right: 15px;
+    /* margin-right: 20px; */
 
 }
 .actor-main__right{
