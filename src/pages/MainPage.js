@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import MovieList from "../components/MainPage/MovieList";
 import Header from "../components/Header/Header";
 import Pagination from "../components/MainPage/Pagination";
-import "./MainPage.css";
 const MainPage = () => {
   const [page, setPage] = useState(1);
   const [movies, setMovies] = useState([]);

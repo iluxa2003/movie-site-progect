@@ -11,10 +11,17 @@ const MovieCard = (props) => {
     setType(props.item.media_type);
     setName(props.item.name || props.item.title);
     if (type === "person") {
-      setImg(
-        "https://www.themoviedb.org/t/p/w300_and_h450_bestv2" +
-          props.item.profile_path
-      );
+
+      if (props.item.profile_path !== null) {
+        setImg(
+          "https://www.themoviedb.org/t/p/w300_and_h450_bestv2" +
+            props.item.profile_path
+        );
+      } else {
+        setImg(
+          "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Unknown_person.jpg/694px-Unknown_person.jpg"
+        );
+      }
     } else {
       if (props.item.poster_path !== null) {
         setImg(

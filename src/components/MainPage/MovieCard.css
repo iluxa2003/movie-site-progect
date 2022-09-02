@@ -23,6 +23,7 @@
 }
 .movie-card__img{
     vertical-align: top;
+    width: 200px;
     height: 300px;
     border-radius: 5px;
 }

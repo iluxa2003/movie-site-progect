@@ -1,5 +1,6 @@
 // import { isDisabled } from "@testing-library/user-event/dist/utils";
 import { useEffect, useState } from "react";
+import "./Pagination.css"
 const Pagination = (props) => {
   const [page, setPage] = useState(0);
   const [pages, setPages] = useState(0);
@@ -48,7 +49,7 @@ const Pagination = (props) => {
           {}
           <li>
             <button
-              className="advanced-pagination-botton"
+              className="advanced-pagination-botton "
               value={
                 page === 1
                   ? page
@@ -60,20 +61,26 @@ const Pagination = (props) => {
               }
               onClick={advansedButtonHandler}
             >
-              {page === 1 ? page : page === 2 ? page - 1 : page - 2}
+              {page === 1
+                ? page
+                : page === 2
+                ? page - 1
+                : page >= pages - 2
+                ? pages - 4
+                : page - 2}
             </button>
           </li>
           <li>
             <button
-              className="advanced-pagination-botton"
+              className="advanced-pagination-botton "
               value={
                 page === 1
                   ? page + 1
                   : page === 2
                   ? page
-                  : page > 2
-                  ? page - 1
-                  : page - 2
+                  : page >= pages - 2
+                  ? pages - 3
+                  : page - 1
               }
               onClick={advansedButtonHandler}
             >
@@ -81,14 +88,14 @@ const Pagination = (props) => {
                 ? page + 1
                 : page === 2
                 ? page
-                : page > 2
-                ? page - 1
-                : page - 2}
+                : page >= pages - 2
+                ? pages - 3
+                : page - 1}
             </button>
           </li>
           <li>
             <button
-              className="advanced-pagination-botton"
+              className="advanced-pagination-botton "
               value={page === 1 ? page + 2 : page === 2 ? page + 1 : page}
               onClick={advansedButtonHandler}
             >
@@ -103,7 +110,7 @@ const Pagination = (props) => {
           </li>
           <li>
             <button
-              className="advanced-pagination-botton"
+              className="advanced-pagination-botton "
               value={page >= pages - 4 ? pages - 1 : page + 1}
               onClick={advansedButtonHandler}
             >
@@ -118,7 +125,7 @@ const Pagination = (props) => {
           </li>
           <li>
             <button
-              className="advanced-pagination-botton"
+              className="advanced-pagination-botton "
               value={
                 page >= pages - 4
                   ? pages
