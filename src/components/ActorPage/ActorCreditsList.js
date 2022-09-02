@@ -9,7 +9,7 @@ const ActorCreditsList = (props) => {
     soloActorCreditsFetch(props.id).then((response) => {
       return setCredits(response.crew);
     });
-  }, [props.id]);
+  }, [props]);
   return (
     <ul className={"actor-credits-list " + props.className}>
       {credits.map((movie) => {
