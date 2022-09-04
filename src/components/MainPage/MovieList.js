@@ -4,6 +4,7 @@ import MovieCard from "./MovieCard";
 // import MovieFilter from "./MovieFilter";
 const MovieList = (props) => {
   const [items, setItems] = useState([]);
+
   useEffect(() => {
     setItems(props.items);
   }, [props]);
@@ -20,18 +21,9 @@ const MovieList = (props) => {
 
   return (
     <section>
-      {/* <MovieFilter
-        selected={filteredYear}
-        onChangeFilter={filterChangeHandler}
-      /> */}
       <ul className="movie-list">
         {items.map((item) => {
-          return (
-            <MovieCard
-              item={item}
-              key={item.id}
-            />
-          );
+          return <MovieCard item={item} key={item.id} />;
         })}
       </ul>
     </section>

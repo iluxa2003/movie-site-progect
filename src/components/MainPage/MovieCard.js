@@ -6,12 +6,12 @@ const MovieCard = (props) => {
   const [type, setType] = useState();
   const [img, setImg] = useState();
   const [name, setName] = useState();
+  const [date, setDate] = useState();
   useEffect(() => {
     setId(props.item.id);
     setType(props.item.media_type);
     setName(props.item.name || props.item.title);
-    if (type === "person") {
-
+    if (props.item.media_type === "person") {
       if (props.item.profile_path !== null) {
         setImg(
           "https://www.themoviedb.org/t/p/w300_and_h450_bestv2" +
@@ -33,8 +33,13 @@ const MovieCard = (props) => {
           "https://user-images.githubusercontent.com/24848110/33519396-7e56363c-d79d-11e7-969b-09782f5ccbab.png"
         );
       }
+      if (props.item.media_type === "tv") {
+        setDate(props.item.first_air_date);
+      } else if (props.item.media_type === "movie") {
+        setDate(props.item.release_date);
+      }
     }
-  }, [props, type]);
+  }, [props]);
   return (
     <Link to={type + "/" + id}>
       <li className="movie-card">
@@ -47,6 +52,7 @@ const MovieCard = (props) => {
           />
           <figcaption className="movie-card__figcaption">
             <p>{name}</p>
+            <p>{new Date(date).getFullYear().toString()}</p>
           </figcaption>
         </figure>
       </li>

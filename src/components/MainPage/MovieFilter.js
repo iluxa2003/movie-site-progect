@@ -1,23 +1,52 @@
-import React from 'react';
-
-
-function MovieFilter (props) {
-  const dropdownChangeHandler = (event) => {
-    props.onChangeFilter(event.target.value);
+import React, { useState, useEffect } from "react";
+const MovieFilter = (props) => {
+  const [media, items, yearHandler] = props.year;
+  const [movies, setMovies] = useState([]);
+  useEffect(() => {
+    setMovies(items);
+  }, [items]);
+  const moviesYears = [
+    movies.map((item) =>
+      new Date(item.release_date || item.first_air_date)
+        .getFullYear()
+        .toString()
+    ),
+  ];
+  const yearChangeHandler = (event) => {
+    return yearHandler(event.target.value);
   };
-
+  const mediaChangeHandler = (event) => {
+    return props.media(event.target.value);
+  };
+  const periodChangeHandler = (event) => {
+    return props.period(event.target.value);
+  };
   return (
-    <div className='expenses-filter'>
-      <div className='expenses-filter__control'>
-        <label>Filter by year</label>
-        <select value={props.selected} onChange={dropdownChangeHandler}>
-          <option value='2022'>2022</option>
-          <option value='2021'>2021</option>
-          <option value='2020'>2020</option>
-          <option value='2019'>2019</option>
-        </select>
-      </div>
-    </div>
+    <section>
+      <select
+        onChange={yearChangeHandler}
+        disabled={media === "tv" || media === "movies" ? false : true}
+      >
+        {moviesYears[0].map((item) => {
+          return (
+            <option value={item} key={Math.random()}>
+              {item}
+            </option>
+          );
+        })}
+      </select>
+
+      <select onChange={periodChangeHandler}>
+        <option value="day">Today</option>
+        <option value="week">This week</option>
+      </select>
+      <select onChange={mediaChangeHandler}>
+        <option value="all">all</option>
+        <option value="person">actors</option>
+        <option value="tv">Tv</option>
+        <option value="movie">Movies</option>
+      </select>
+    </section>
   );
 };
 
