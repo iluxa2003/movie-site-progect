@@ -10,7 +10,7 @@ const MainPage = () => {
   const [pages, setPages] = useState(0);
   const [mediaType, setMediaType] = useState("all");
   const [period, setPeriod] = useState("day");
-  const [filteredMovies, setFilteredMovies] = useState([]);
+  const [filteredMovies, setFilteredMovies] = useState([...movies]);
   useEffect(() => {
     FetchTrends(page, mediaType, period).then((response) => {
       return setMovies(response.results);
@@ -18,8 +18,8 @@ const MainPage = () => {
     FetchTrends(page, mediaType, period).then((response) => {
       return setPages(response.total_pages);
     });
-    setFilteredMovies(movies)
-  }, [page, mediaType, period,movies]);
+    // setFilteredMovies(movies)
+  }, [page, mediaType, period]);
 
   const nextHandler = () => {
     setPage(parseInt(page + 1));
@@ -61,7 +61,7 @@ const MainPage = () => {
           period={trendingPeriodHandler}
           year={[mediaType, movies, yearHandler]}
         />
-        <MovieList items={filteredMovies} />
+        <MovieList items={mediaType === "tv" || mediaType === "movie"?filteredMovies:movies} />
       </main>
     </div>
   );
