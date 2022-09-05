@@ -5,7 +5,7 @@ import ActorMain from "../components/ActorPage/ActorMain";
 import soloActorFetch from "../fetches/soloActorFetch";
 
 const ActorPage = () => {
-  const {id} = useParams();
+  const { id } = useParams();
   const [actor, setActor] = useState([]);
   useEffect(() => {
     soloActorFetch(id).then((response) => {
@@ -15,7 +15,7 @@ const ActorPage = () => {
   return (
     <div>
       <Header />
-      <ActorMain items={actor} id={id}/>
+      <ActorMain items={actor} id={id} />
     </div>
   );
 };

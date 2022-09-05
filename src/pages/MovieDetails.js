@@ -11,26 +11,22 @@ const MovieDetails = (props) => {
   const [movieInfo, setMovieInfo] = useState([]);
   const [actors, setActors] = useState([]);
   useEffect(() => {
-    actorsFetch(id,"movie").then((response) => {
+    actorsFetch(id, "movie").then((response) => {
       return setActors(response.cast);
     });
-  },[id]);
+  }, [id]);
 
   useEffect(() => {
     soloMovieFetch(id).then((response) => {
       return setMovieInfo(response);
     });
-  },[id]);
+  }, [id]);
 
   return (
     <div>
       <Header />
-      
-        {/* <p>{id}</p>
-        <p>{movieInfo.title || movieInfo.name}</p>
-        <ActorCardList actors={actors} /> */}
-        <MovieMain info={movieInfo} actors={actors}/>
 
+      <MovieMain info={movieInfo} actors={actors} />
     </div>
   );
 };

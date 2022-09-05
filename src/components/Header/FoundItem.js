@@ -8,7 +8,6 @@ const FoundItem = (props) => {
   const [img, setImg] = useState();
   useEffect(() => {
     if (obj.length !== 0) {
-
       if (obj.media_type === "person") {
         obj.profile_path !== null
           ? setImg(

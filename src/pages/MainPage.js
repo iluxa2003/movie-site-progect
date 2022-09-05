@@ -18,7 +18,6 @@ const MainPage = () => {
     FetchTrends(page, mediaType, period).then((response) => {
       return setPages(response.total_pages);
     });
-    // setFilteredMovies(movies)
   }, [page, mediaType, period]);
 
   const nextHandler = () => {
@@ -37,13 +36,15 @@ const MainPage = () => {
     setPeriod(event);
   };
   const yearHandler = (year) => {
-    setFilteredMovies(movies.filter((item) => {
-      return (
-        new Date(item.release_date || item.first_air_date)
-          .getFullYear()
-          .toString() === year
-      );
-    }))
+    setFilteredMovies(
+      movies.filter((item) => {
+        return (
+          new Date(item.release_date || item.first_air_date)
+            .getFullYear()
+            .toString() === year
+        );
+      })
+    );
   };
   return (
     <div>
@@ -61,7 +62,13 @@ const MainPage = () => {
           period={trendingPeriodHandler}
           year={[mediaType, movies, yearHandler]}
         />
-        <MovieList items={mediaType === "tv" || mediaType === "movie"?filteredMovies:movies} />
+        <MovieList
+          items={
+            mediaType === "tv" || mediaType === "movie"
+              ? filteredMovies
+              : movies
+          }
+        />
       </main>
     </div>
   );

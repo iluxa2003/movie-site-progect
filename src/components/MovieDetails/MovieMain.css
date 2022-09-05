@@ -16,9 +16,7 @@
   flex-direction: row;
   justify-content: space-around;
 }
-/* h1{
-    font-style: italic;
-} */
+
 .movie-main__tagline {
   font-style: italic;
 }

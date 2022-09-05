@@ -1,6 +1,5 @@
-// import { isDisabled } from "@testing-library/user-event/dist/utils";
 import { useEffect, useState } from "react";
-import "./Pagination.css"
+import "./Pagination.css";
 const Pagination = (props) => {
   const [page, setPage] = useState(0);
   const [pages, setPages] = useState(0);

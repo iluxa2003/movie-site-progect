@@ -1,19 +1,16 @@
 import ActorCard from "./ActorCard";
-// import { useEffect, useState } from "react";
-// import actorsFetch from "../../fetches/actorsFetch";
-import './ActorCardList.css'
-import { useEffect,useState } from "react";
+import "./ActorCardList.css";
+import { useEffect, useState } from "react";
 const ActorCardList = (props) => {
   const [actors, setActors] = useState([]);
   useEffect(() => {
     if (props.actors !== undefined) {
       setActors(props.actors);
-
     }
   }, [props]);
 
   return (
-    <ul className={"actor-card-list "+props.className}>
+    <ul className={"actor-card-list " + props.className}>
       {actors.map((actor) => {
         return (
           <ActorCard
@@ -26,7 +23,6 @@ const ActorCardList = (props) => {
           />
         );
       })}
-
     </ul>
   );
 };

@@ -3,7 +3,7 @@ const FoundList = (props) => {
   return (
     <ul className={" " + props.className}>
       {props.found.map((item) => {
-        return <FoundItem item={item} key={item.id}/>;
+        return <FoundItem item={item} key={item.id} />;
       })}
     </ul>
   );

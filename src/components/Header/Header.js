@@ -1,5 +1,5 @@
 import "./Header.css";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 import Search from "./Search";
 const Header = () => {
   return (
@@ -8,9 +8,7 @@ const Header = () => {
       <div className="header__right">
         <div></div>
         <span className="header__home-link">
-            <Link to={"../"}>
-                Home
-            </Link>
+          <Link to={"../"}>Home</Link>
         </span>
       </div>
     </header>

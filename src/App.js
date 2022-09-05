@@ -5,8 +5,6 @@ import MainPage from "./pages/MainPage";
 import TvPage from "./pages/TvPage";
 import ActorPage from "./pages/ActorPage";
 function App() {
-
-
   return (
     <Router>
       <Routes>

@@ -18,7 +18,7 @@ const Search = () => {
     <form className="search">
       <input className="search__input" onInput={handler} />
       <div className="search__underline"></div>
-      <FoundList className="search__found-list" found={founded}/>
+      <FoundList className="search__found-list" found={founded} />
     </form>
   );
 };
