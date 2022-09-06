@@ -1,25 +1,25 @@
-.pagination-bottons-wrapper {
+.pagination-buttons-wrapper {
   display: flex;
   justify-content: space-evenly;
   padding: 10px;
 }
-.pagination-botton {
+.pagination-button {
   padding: 10px;
   color: white;
   border-radius: 4px;
   background-color: #2196f3;
   cursor: pointer;
 }
-.advanced-pagination-bottons {
+.advanced-pagination-buttons {
   list-style: none;
   display: flex;
   padding: 0;
 }
-.advanced-pagination-bottons-wrapper {
+.advanced-pagination-buttons-wrapper {
   display: flex;
   justify-content: space-around;
 }
-.advanced-pagination-botton {
+.advanced-pagination-button {
   cursor: pointer;
   height: 50px;
   width: 50px;
@@ -30,7 +30,7 @@
   color: white;
   border: 0;
 }
-.advanced-pagination-botton:hover {
+.advanced-pagination-button:hover {
   background-color: #373b69;
   color: rgb(238, 187, 20);
 }

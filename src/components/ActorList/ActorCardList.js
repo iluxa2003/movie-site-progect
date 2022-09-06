@@ -12,16 +12,7 @@ const ActorCardList = (props) => {
   return (
     <ul className={"actor-card-list " + props.className}>
       {actors.map((actor) => {
-        return (
-          <ActorCard
-            name={actor.original_name || actor.name}
-            img={actor.profile_path}
-            character={actor.character}
-            id={actor.id}
-            info={actor}
-            key={actor.id}
-          />
-        );
+        return <ActorCard info={actor} key={actor.id} />;
       })}
     </ul>
   );

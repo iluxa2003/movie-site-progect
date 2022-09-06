@@ -18,27 +18,27 @@ const Pagination = (props) => {
   };
   return (
     <div>
-      <div className="pagination-bottons-wrapper">
+      <div className="pagination-buttons-wrapper">
         <button
           onClick={previous}
-          className="pagination-botton"
+          className="pagination-button"
           disabled={page === 1 ? true : false}
         >
           Previous page
         </button>
         <button
           onClick={next}
-          className="pagination-botton"
+          className="pagination-button"
           disabled={page === 1000 ? true : false}
         >
           Next page
         </button>
       </div>
-      <div className="advanced-pagination-bottons-wrapper">
-        <ul className="advanced-pagination-bottons">
+      <div className="advanced-pagination-buttons-wrapper">
+        <ul className="advanced-pagination-buttons">
           <li>
             <button
-              className="advanced-pagination-botton"
+              className="advanced-pagination-button"
               value={1}
               onClick={advansedButtonHandler}
             >
@@ -48,7 +48,7 @@ const Pagination = (props) => {
           {}
           <li>
             <button
-              className="advanced-pagination-botton "
+              className="advanced-pagination-button "
               value={
                 page === 1
                   ? page
@@ -71,7 +71,7 @@ const Pagination = (props) => {
           </li>
           <li>
             <button
-              className="advanced-pagination-botton "
+              className="advanced-pagination-button "
               value={
                 page === 1
                   ? page + 1
@@ -94,7 +94,7 @@ const Pagination = (props) => {
           </li>
           <li>
             <button
-              className="advanced-pagination-botton "
+              className="advanced-pagination-button "
               value={page === 1 ? page + 2 : page === 2 ? page + 1 : page}
               onClick={advansedButtonHandler}
             >
@@ -109,7 +109,7 @@ const Pagination = (props) => {
           </li>
           <li>
             <button
-              className="advanced-pagination-botton "
+              className="advanced-pagination-button "
               value={page >= pages - 4 ? pages - 1 : page + 1}
               onClick={advansedButtonHandler}
             >
@@ -124,7 +124,7 @@ const Pagination = (props) => {
           </li>
           <li>
             <button
-              className="advanced-pagination-botton "
+              className="advanced-pagination-button "
               value={
                 page >= pages - 4
                   ? pages
@@ -148,7 +148,7 @@ const Pagination = (props) => {
           {}
           <li>
             <button
-              className="advanced-pagination-botton"
+              className="advanced-pagination-button"
               value={pages}
               onClick={advansedButtonHandler}
             >
