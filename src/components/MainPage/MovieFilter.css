@@ -1,0 +1,10 @@
+.movie-filter select {
+  font: inherit;
+  padding: 3px;
+  font-weight: bold;
+  border-radius: 6px;
+}
+.movie-filter {
+  color: white;
+  padding: 0 1rem;
+}

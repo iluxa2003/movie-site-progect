@@ -30,19 +30,21 @@ const MovieFilter = (props) => {
   };
   return (
     <section>
-      <select
-        onChange={yearChangeHandler}
-        disabled={media === "tv" || media === "movie" ? false : true}
-        value={year}
-      >
-        {moviesYears.map((item) => {
-          return (
-            <option value={item} key={Math.random()}>
-              {item}
-            </option>
-          );
-        })}
-      </select>
+      <div className="movie-filter">
+        <select
+          onChange={yearChangeHandler}
+          disabled={media === "tv" || media === "movie" ? false : true}
+          value={year}
+        >
+          {moviesYears.map((item) => {
+            return (
+              <option value={item} key={Math.random()}>
+                {item}
+              </option>
+            );
+          })}
+        </select>
+      </div>
 
       <select onChange={periodChangeHandler}>
         <option value="day">Today</option>

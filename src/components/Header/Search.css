@@ -1,9 +1,8 @@
 .search__input {
   min-width: 300px;
   border: 0px;
-
-  color: lightgray;
-  background-color: #373b69;
+  color: black;
+  background-color: white;
 }
 .search {
   position: relative;
@@ -17,7 +16,6 @@
 }
 .search__underline {
   margin-top: 3px;
-
   background-color: grey;
   min-width: 296px;
   height: 1px;
@@ -29,12 +27,18 @@
   list-style: none;
   padding: 5px;
   min-width: 290px;
-  background-color: #373b69;
+  background-color: white;
   top: 7px;
   left: 0;
   margin-bottom: 0px;
-
   border-radius: 3px;
-  border: 2px solid #3053a0;
-  border-top: 0px;
+}
+
+.search__input.dark {
+  color: lightgray;
+  background-color: #373b69;
+}
+
+.search__found-list.dark {
+  background-color: #373b69;
 }
