@@ -39,7 +39,7 @@ const MovieMain = (props) => {
       <section
         className="movie-main__bg-image"
         style={{
-          backgroundImage: `${backgroundImage}`,
+          backgroundImage: backgroundImage,
         }}
       >
         <div

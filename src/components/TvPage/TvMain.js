@@ -32,13 +32,13 @@ const TvMain = (props) => {
         );
       }
     }
-  }, [props,info]);
+  }, [props, info]);
   return (
     <main>
       <section
         className="tv-main__bg-image"
         style={{
-          backgroundImage: `${backgroundImage}`,
+          backgroundImage: backgroundImage,
         }}
       >
         <div className={"tv-main__wrapper" + (dark === "true" ? " dark" : "")}>
