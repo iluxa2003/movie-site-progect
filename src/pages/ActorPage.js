@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header/Header";
 import ActorMain from "../components/ActorPage/ActorMain";
-import soloActorFetch from "../fetches/soloActorFetch";
+import soloActorFetch from "../services/soloActorFetch";
 
 const ActorPage = () => {
   const { id } = useParams();

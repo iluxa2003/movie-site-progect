@@ -8,7 +8,6 @@
 }
 .tv-main__wrapper {
   padding: 120px;
-  background: rgba(47, 48, 58, 0.4);
 }
 .tv-main__figure {
   color: white;
@@ -53,4 +52,7 @@
   height: 450px;
   margin-right: 10px;
   border-radius: 5px;
+}
+.tv-main__wrapper.dark {
+  background: rgba(47, 48, 58, 0.4);
 }

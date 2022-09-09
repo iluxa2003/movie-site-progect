@@ -8,7 +8,9 @@ const TvMain = (props) => {
   const [companies, setCompanies] = useState([]);
   const [backgroundImage, setBackgroundImage] = useState();
   const [posterImage, setPosterImage] = useState();
+  const [dark, setDark] = useState("");
   useEffect(() => {
+    setDark(props.dark);
     if (info.length !== 0) {
       setGenres(info.genres);
       setCompanies(info.production_companies);
@@ -30,7 +32,7 @@ const TvMain = (props) => {
         );
       }
     }
-  }, [info]);
+  }, [props,info]);
   return (
     <main>
       <section
@@ -39,7 +41,7 @@ const TvMain = (props) => {
           backgroundImage: `${backgroundImage}`,
         }}
       >
-        <div className="tv-main__wrapper">
+        <div className={"tv-main__wrapper" + (dark === "true" ? " dark" : "")}>
           <figure className="tv-main__figure">
             <img
               className="tv-main__image"
@@ -79,7 +81,7 @@ const TvMain = (props) => {
       <section>
         <div className="tv-main__special-info">
           <ActorCardList
-            dark={props.dark}
+            dark={dark}
             actors={actors}
             className="tv-main__actors"
           />

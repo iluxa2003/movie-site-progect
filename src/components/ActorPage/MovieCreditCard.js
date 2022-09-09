@@ -2,7 +2,6 @@ import "./MovieCreditCard.css";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 const MovieCreditCard = (props) => {
-  // https://image.tmdb.org/t/p/w138_and_h175_bestv2/
   const info = props.item;
   const [title, setTitle] = useState();
   const [job, setJob] = useState();

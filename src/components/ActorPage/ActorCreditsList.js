@@ -1,6 +1,6 @@
 import MovieCreditCard from "./MovieCreditCard";
 import { useEffect, useState } from "react";
-import soloActorCreditsFetch from "../../fetches/soloActorCreditsFetch";
+import soloActorCreditsFetch from "../../services/soloActorCreditsFetch";
 import "./ActorCreditsList.css";
 
 const ActorCreditsList = (props) => {

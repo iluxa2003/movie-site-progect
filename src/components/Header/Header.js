@@ -10,7 +10,7 @@ const Header = (props) => {
     } catch {
       localStorage.setItem("dark", true);
     }
-  }, []);
+  }, [props]);
   useEffect(() => {
     props.darkMode(dark);
   }, [props, dark]);
@@ -23,7 +23,11 @@ const Header = (props) => {
       setDark(localStorage.getItem("dark"));
     }
   };
-
+  const refresh = () => {
+    try {
+      props.refreshHandler();
+    } catch {}
+  };
   return (
     <header className={"header" + (dark === "true" ? " dark" : "")}>
       <style>{`body{background-color:${
@@ -42,7 +46,16 @@ const Header = (props) => {
         <span
           className={"header__home-link" + (dark === "true" ? " dark" : "")}
         >
-          <Link to={"../"}>Home</Link>
+          <Link to={"../"}>
+            <button
+              className={
+                "header__home-link__button" + (dark === "true" ? " dark" : "")
+              }
+              onClick={refresh}
+            >
+              Home
+            </button>
+          </Link>
         </span>
       </div>
     </header>

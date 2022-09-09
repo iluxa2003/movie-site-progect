@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import Header from "../components/Header/Header";
-import actorsFetch from "../fetches/actorsFetch";
-import soloTvFetch from "../fetches/soloTvFetch";
+import actorsFetch from "../services/actorsFetch";
+import soloTvFetch from "../services/soloTvFetch";
 import TvMain from "../components/TvPage/TvMain";
 const TvPage = () => {
   const { id } = useParams();

@@ -8,8 +8,9 @@ const MovieMain = (props) => {
   const [companies, setCompanies] = useState([]);
   const [backgroundImage, setBackgroundImage] = useState();
   const [posterImage, setPosterImage] = useState();
-
+  const [dark, setDark] = useState("");
   useEffect(() => {
+    setDark(props.dark);
     if (info.length !== 0) {
       setGenres(info.genres);
       setCompanies(info.production_companies);
@@ -41,7 +42,9 @@ const MovieMain = (props) => {
           backgroundImage: `${backgroundImage}`,
         }}
       >
-        <div className="movie-main__wrapper">
+        <div
+          className={"movie-main__wrapper" + (dark === "true" ? " dark" : "")}
+        >
           <figure className="movie-main__figure">
             <img
               className="movie-main__image"
@@ -75,7 +78,7 @@ const MovieMain = (props) => {
       <section>
         <div className="movie-main__special-info">
           <ActorCardList
-            dark={props.dark}
+            dark={dark}
             actors={actors}
             className="movie-main__actors"
           />

@@ -1,4 +1,4 @@
-import FetchTrends from "../fetches/moviesFetch";
+import FetchTrends from "../services/moviesFetch";
 import React, { useState, useEffect } from "react";
 import MovieList from "../components/MainPage/MovieList";
 import Header from "../components/Header/Header";
@@ -20,7 +20,13 @@ const MainPage = () => {
       return setPages(response.total_pages);
     });
   }, [page, mediaType, period]);
-
+  useEffect(() => {
+    setFilteredMovies(
+      movies.filter((item) => {
+        return item;
+      })
+    );
+  }, [mediaType, movies]);
   const nextHandler = () => {
     setPage(parseInt(page + 1));
   };
@@ -39,20 +45,29 @@ const MainPage = () => {
   const yearHandler = (year) => {
     setFilteredMovies(
       movies.filter((item) => {
-        return (
-          new Date(item.release_date || item.first_air_date)
-            .getFullYear()
-            .toString() === year
-        );
+        if (year !== "all") {
+          return (
+            new Date(item.release_date || item.first_air_date)
+              .getFullYear()
+              .toString() === year
+          );
+        } else {
+          return item;
+        }
       })
     );
   };
   const darkModeHandler = (isDark) => {
     setDark(isDark);
   };
+  const toStandart = () => {
+    setPage(1);
+    setMediaType("all");
+    setPeriod("day");
+  };
   return (
     <div>
-      <Header darkMode={darkModeHandler} />
+      <Header refreshHandler={toStandart} darkMode={darkModeHandler} />
       <main>
         <Pagination
           handler={specialButtonHandler}
@@ -65,7 +80,7 @@ const MainPage = () => {
         <MovieFilter
           media={mediaTypeHandler}
           period={trendingPeriodHandler}
-          year={[mediaType, movies, yearHandler]}
+          year={[period, mediaType, movies, yearHandler]}
         />
         <MovieList
           dark={dark}

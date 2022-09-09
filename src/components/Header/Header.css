@@ -9,8 +9,8 @@
 .header__home-link {
   color: grey;
   border: 2px solid grey;
-  padding: 5px;
-  height: 18px;
+
+  height: 25px;
 }
 .header__right {
   width: 150px;
@@ -32,7 +32,19 @@ a {
   height: 50px;
   width: 50px;
 }
+.header__home-link__button {
+  border: 0;
+  width: 100%;
+  padding: 5px;
+  height: 25px;
+  cursor: pointer;
+  background-color: white;
+}
 
+.header__home-link__button.dark {
+  color: white;
+  background-color: #373b69;
+}
 .header__home-link.dark {
   border: 2px solid grey;
 }

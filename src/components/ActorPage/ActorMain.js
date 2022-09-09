@@ -70,7 +70,7 @@ const ActorMain = (props) => {
           </div>
           <div>
             <ActorCreditsList
-            dark={dark}
+              dark={dark}
               id={props.id}
               className="actor-main__credit-list"
             />

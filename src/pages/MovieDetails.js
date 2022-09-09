@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import soloMovieFetch from "../fetches/soloMovieFetch";
+import soloMovieFetch from "../services/soloMovieFetch";
 
-import actorsFetch from "../fetches/actorsFetch";
+import actorsFetch from "../services/actorsFetch";
 import Header from "../components/Header/Header";
 import MovieMain from "../components/MovieDetails/MovieMain";
 const MovieDetails = (props) => {
