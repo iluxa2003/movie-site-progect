@@ -52,7 +52,7 @@ const ActorMain = (props) => {
                   <p>{info.place_of_birth}</p>
                 </li>
                 <li>
-                  <p>known_for_department</p>
+                  <p>known for:</p>
                   <p>{info.known_for_department}</p>
                 </li>
                 <li>

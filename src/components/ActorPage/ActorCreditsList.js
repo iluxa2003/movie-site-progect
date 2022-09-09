@@ -4,16 +4,26 @@ import soloActorCreditsFetch from "../../services/soloActorCreditsFetch";
 import "./ActorCreditsList.css";
 
 const ActorCreditsList = (props) => {
-  const [credits, setCredits] = useState([]);
-
+  const [creditsCrew, setCreditsCrew] = useState([]);
+  const [creditsCast, setCreditsCast] = useState([]);
   useEffect(() => {
     soloActorCreditsFetch(props.id).then((response) => {
-      return setCredits(response.crew);
+      setCreditsCrew(response.crew);
+      setCreditsCast(response.cast);
     });
   }, [props]);
   return (
     <ul className={"actor-credits-list " + props.className}>
-      {credits.map((movie) => {
+      {creditsCrew.map((movie) => {
+        return (
+          <MovieCreditCard
+            dark={props.dark}
+            item={movie}
+            key={movie.id + Math.random()}
+          />
+        );
+      })}
+      {creditsCast.map((movie) => {
         return (
           <MovieCreditCard
             dark={props.dark}
