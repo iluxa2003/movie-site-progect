@@ -10,6 +10,7 @@ const MainPage = () => {
   const [pages, setPages] = useState(0);
   const [mediaType, setMediaType] = useState("all");
   const [period, setPeriod] = useState("day");
+  const [dark, setDark] = useState("");
   const [filteredMovies, setFilteredMovies] = useState([...movies]);
   useEffect(() => {
     FetchTrends(page, mediaType, period).then((response) => {
@@ -46,9 +47,12 @@ const MainPage = () => {
       })
     );
   };
+  const darkModeHandler = (isDark) => {
+    setDark(isDark);
+  };
   return (
     <div>
-      <Header />
+      <Header darkMode={darkModeHandler} />
       <main>
         <Pagination
           handler={specialButtonHandler}
@@ -57,12 +61,14 @@ const MainPage = () => {
           page={page}
           pages={pages}
         />
+
         <MovieFilter
           media={mediaTypeHandler}
           period={trendingPeriodHandler}
           year={[mediaType, movies, yearHandler]}
         />
         <MovieList
+          dark={dark}
           items={
             mediaType === "tv" || mediaType === "movie"
               ? filteredMovies

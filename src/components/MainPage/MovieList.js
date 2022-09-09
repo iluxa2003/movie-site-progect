@@ -4,8 +4,10 @@ import MovieCard from "./MovieCard";
 
 const MovieList = (props) => {
   const [items, setItems] = useState([]);
+  const [dark, setDark] = useState("");
 
   useEffect(() => {
+    setDark(props.dark);
     setItems(props.items);
   }, [props]);
 
@@ -13,7 +15,7 @@ const MovieList = (props) => {
     <section>
       <ul className="movie-list">
         {items.map((item) => {
-          return <MovieCard item={item} key={item.id} />;
+          return <MovieCard dark={dark} item={item} key={item.id} />;
         })}
       </ul>
     </section>

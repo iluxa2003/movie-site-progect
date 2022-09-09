@@ -11,7 +11,7 @@ p {
   font-size: 0.9em;
   margin: 10px;
   border-radius: 6px;
-  background-color: #373b69;
+  background-color: #5F7FCF;
   text-decoration: none;
 }
 .actor-card__image {
@@ -27,9 +27,16 @@ p {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-between;
-  color: white;
+  color: black;
 }
 
 p:first-child {
   font-weight: bold;
+}
+
+.actor-card.dark {
+  background-color: #373b69;
+}
+.actor-card__description.dark {
+  color: white;
 }

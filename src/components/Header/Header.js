@@ -2,7 +2,7 @@ import "./Header.css";
 import { Link } from "react-router-dom";
 import Search from "./Search";
 import { useState, useEffect } from "react";
-const Header = () => {
+const Header = (props) => {
   const [dark, setDark] = useState("true");
   useEffect(() => {
     try {
@@ -11,6 +11,9 @@ const Header = () => {
       localStorage.setItem("dark", true);
     }
   }, []);
+  useEffect(() => {
+    props.darkMode(dark);
+  }, [props, dark]);
   const darkModeHandler = () => {
     if (dark === "true") {
       localStorage.setItem("dark", false);

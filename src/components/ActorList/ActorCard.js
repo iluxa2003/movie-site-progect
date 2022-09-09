@@ -6,11 +6,14 @@ const ActorCard = (props) => {
   const [name, setName] = useState();
   const [character, setCharacter] = useState();
   const [id, setId] = useState();
+  const [dark, setDark] = useState("");
+
   useEffect(() => {
     if (props.info !== undefined) {
       setName(props.info.name);
       setCharacter(props.info.character);
       setId(props.info.id);
+      setDark(props.dark);
       if (props.info.profile_path != null) {
         setImage(
           "https://image.tmdb.org/t/p/w138_and_h175_bestv2/" +
@@ -25,11 +28,20 @@ const ActorCard = (props) => {
   }, [props]);
 
   return (
-    <li className="actor-card">
+    <li className={"actor-card" + (dark === "true" ? " dark" : "")}>
       <Link to={"../person/" + id}>
         <figure>
-          <img className="actor-card__image" src={image} alt={image}></img>
-          <figcaption className="actor-card__description">
+          <img
+            className="actor-card__image"
+            src={image}
+            alt={image}
+            loading="lazy"
+          ></img>
+          <figcaption
+            className={
+              "actor-card__description" + (dark === "true" ? " dark" : "")
+            }
+          >
             <p>{name}</p>
             <p>{character}</p>
           </figcaption>

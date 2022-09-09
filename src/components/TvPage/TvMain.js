@@ -78,7 +78,11 @@ const TvMain = (props) => {
       </section>
       <section>
         <div className="tv-main__special-info">
-          <ActorCardList actors={actors} className="tv-main__actors" />
+          <ActorCardList
+            dark={props.dark}
+            actors={actors}
+            className="tv-main__actors"
+          />
           <div className="tv-main__right-side">
             <ul className="tv-main__right-side-list">
               <li>

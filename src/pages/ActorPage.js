@@ -7,15 +7,20 @@ import soloActorFetch from "../fetches/soloActorFetch";
 const ActorPage = () => {
   const { id } = useParams();
   const [actor, setActor] = useState([]);
+  const [dark, setDark] = useState("");
   useEffect(() => {
     soloActorFetch(id).then((response) => {
       return setActor(response);
     });
   }, [id]);
+
+  const darkModeHandler = (isDark) => {
+    setDark(isDark);
+  };
   return (
     <div>
-      <Header />
-      <ActorMain items={actor} id={id} />
+      <Header darkMode={darkModeHandler} />
+      <ActorMain dark={dark} items={actor} id={id} />
     </div>
   );
 };

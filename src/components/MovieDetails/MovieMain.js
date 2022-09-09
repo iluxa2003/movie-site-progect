@@ -8,6 +8,7 @@ const MovieMain = (props) => {
   const [companies, setCompanies] = useState([]);
   const [backgroundImage, setBackgroundImage] = useState();
   const [posterImage, setPosterImage] = useState();
+
   useEffect(() => {
     if (info.length !== 0) {
       setGenres(info.genres);
@@ -30,7 +31,7 @@ const MovieMain = (props) => {
         );
       }
     }
-  }, [info]);
+  }, [props, info]);
 
   return (
     <main>
@@ -73,7 +74,11 @@ const MovieMain = (props) => {
       </section>
       <section>
         <div className="movie-main__special-info">
-          <ActorCardList actors={actors} className="movie-main__actors" />
+          <ActorCardList
+            dark={props.dark}
+            actors={actors}
+            className="movie-main__actors"
+          />
           <div className="movie-main__right-side">
             <ul className="movie-main__right-side-list">
               <li>

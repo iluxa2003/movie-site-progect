@@ -9,6 +9,7 @@ const TvPage = () => {
 
   const [tvInfo, setTvInfo] = useState([]);
   const [actors, setActors] = useState([]);
+  const [dark, setDark] = useState("");
   useEffect(() => {
     actorsFetch(id, "tv").then((response) => {
       return setActors(response.cast);
@@ -20,11 +21,14 @@ const TvPage = () => {
       return setTvInfo(response);
     });
   }, [id]);
+  const darkModeHandler = (isDark) => {
+    setDark(isDark);
+  };
   return (
     <div>
-      <Header />
+      <Header darkMode={darkModeHandler} />
       <main>
-        <TvMain info={tvInfo} actors={actors} />
+        <TvMain dark={dark} info={tvInfo} actors={actors} />
       </main>
     </div>
   );

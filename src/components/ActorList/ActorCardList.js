@@ -12,7 +12,7 @@ const ActorCardList = (props) => {
   return (
     <ul className={"actor-card-list " + props.className}>
       {actors.map((actor) => {
-        return <ActorCard info={actor} key={actor.id} />;
+        return <ActorCard dark={props.dark} info={actor} key={actor.id} />;
       })}
     </ul>
   );

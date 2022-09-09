@@ -10,6 +10,7 @@ const MovieDetails = (props) => {
 
   const [movieInfo, setMovieInfo] = useState([]);
   const [actors, setActors] = useState([]);
+  const [dark, setDark] = useState("");
   useEffect(() => {
     actorsFetch(id, "movie").then((response) => {
       return setActors(response.cast);
@@ -21,12 +22,14 @@ const MovieDetails = (props) => {
       return setMovieInfo(response);
     });
   }, [id]);
-
+  const darkModeHandler = (isDark) => {
+    setDark(isDark);
+  };
   return (
     <div>
-      <Header />
+      <Header darkMode={darkModeHandler} />
 
-      <MovieMain info={movieInfo} actors={actors} />
+      <MovieMain dark={dark} info={movieInfo} actors={actors} />
     </div>
   );
 };

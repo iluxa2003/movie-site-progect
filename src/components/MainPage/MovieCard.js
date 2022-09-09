@@ -7,7 +7,10 @@ const MovieCard = (props) => {
   const [img, setImg] = useState();
   const [name, setName] = useState();
   const [date, setDate] = useState();
+  const [dark, setDark] = useState("");
+
   useEffect(() => {
+    setDark(props.dark);
     setId(props.item.id);
     setType(props.item.media_type);
     setName(props.item.name || props.item.title);
@@ -42,15 +45,21 @@ const MovieCard = (props) => {
   }, [props]);
   return (
     <Link to={type + "/" + id}>
-      <li className="movie-card">
-        <figure className="movie-card__figure">
+      <li className={"movie-card" + (dark === "true" ? " dark" : "")}>
+        <figure
+          className={"movie-card__figure" + (dark === "true" ? " dark" : "")}
+        >
           <img
             className="movie-card__img"
             src={img}
             alt="nothing"
             loading="lazy"
           />
-          <figcaption className="movie-card__figcaption">
+          <figcaption
+            className={
+              "movie-card__figcaption" + (dark === "true" ? " dark" : "")
+            }
+          >
             <p>{name}</p>
             <p>{new Date(date).getFullYear().toString()}</p>
           </figcaption>
