@@ -4,9 +4,21 @@ import ActorCreditsList from "./ActorCreditsList";
 const ActorMain = (props) => {
   const info = props.items;
   const [posterImage, setPosterImage] = useState();
-  const [dark, setDark] = useState("");
+  const [dark, setDark] = useState();
+  const [name, setName] = useState();
+  const [birthday, setBirthday] = useState();
+  const [placeOfBirth, setPlaceOfBirth] = useState();
+  const [knownForDepartment, setKnownForDepartment] = useState();
+  const [popularity, setPopularity] = useState();
+  const [biography, setBiography] = useState();
   useEffect(() => {
     setDark(props.dark);
+    setName(info.name);
+    setBirthday(info.birthday);
+    setPlaceOfBirth(info.place_of_birth);
+    setKnownForDepartment(info.known_for_department);
+    setPopularity(info.popularity);
+    setBiography(info.biography);
     if (info.length !== 0) {
       if (info.profile_path !== null) {
         setPosterImage(
@@ -45,29 +57,54 @@ const ActorMain = (props) => {
               <ul className="actor-main__list">
                 <li>
                   <p>Name :</p>
-                  <p>{info.name + " (" + info.birthday + ")"}</p>
+                  <p>
+                    {name +
+                      (birthday !== null && birthday !== undefined
+                        ? " (" + birthday + ")"
+                        : " ")}
+                  </p>
                 </li>
-                <li>
-                  <p>Was born in:</p>
-                  <p>{info.place_of_birth}</p>
-                </li>
-                <li>
-                  <p>known for:</p>
-                  <p>{info.known_for_department}</p>
-                </li>
-                <li>
-                  <p>Popularity:</p>
-                  <p>{info.popularity}</p>
-                </li>
+
+                {placeOfBirth !== null && placeOfBirth !== undefined ? (
+                  <li>
+                    <p>Was born in:</p>
+                    <p>{placeOfBirth}</p>
+                  </li>
+                ) : (
+                  ""
+                )}
+
+                {knownForDepartment !== null &&
+                knownForDepartment !== undefined ? (
+                  <li>
+                    <p>Known for:</p>
+                    <p>{knownForDepartment}</p>
+                  </li>
+                ) : (
+                  ""
+                )}
+                {popularity !== null && popularity !== undefined ? (
+                  <li>
+                    <p>Popularity:</p>
+                    <p>{popularity}</p>
+                  </li>
+                ) : (
+                  ""
+                )}
               </ul>
             </figcaption>
           </figure>
         </section>
         <section className="actor-main__right">
-          <div>
-            <h3>Biography</h3>
-            <h5>{info.biography}</h5>
-          </div>
+          {biography !== null && biography !== undefined && biography !== "" ? (
+            <div>
+              <h3>Biography</h3>
+              <h5>{biography}</h5>
+            </div>
+          ) : (
+            ""
+          )}
+
           <div>
             <ActorCreditsList
               dark={dark}

@@ -10,8 +10,10 @@ const MainPage = () => {
   const [pages, setPages] = useState(0);
   const [mediaType, setMediaType] = useState("all");
   const [period, setPeriod] = useState("day");
+  const [year, setYear] = useState("all");
   const [dark, setDark] = useState("");
   const [filteredMovies, setFilteredMovies] = useState([...movies]);
+  const [moviesYears, setMoviesYears] = useState([]);
   useEffect(() => {
     FetchTrends(page, mediaType, period).then((response) => {
       return setMovies(response.results);
@@ -19,30 +21,25 @@ const MainPage = () => {
     FetchTrends(page, mediaType, period).then((response) => {
       return setPages(response.total_pages);
     });
-  }, [page, mediaType, period]);
+  }, [page, mediaType, period, year]);
   useEffect(() => {
-    setFilteredMovies(
-      movies.filter((item) => {
-        return item;
-      })
+    if (!moviesYears.includes(year)) {
+      setYear("all");
+    }
+  }, [moviesYears, page, year]);
+  useEffect(() => {
+    setMoviesYears(
+      movies
+        .map((item) =>
+          new Date(item.release_date || item.first_air_date)
+            .getFullYear()
+            .toString()
+        )
+        .filter((item, index, array) => array.indexOf(item) === index)
+        .sort()
     );
-  }, [mediaType, movies]);
-  const nextHandler = () => {
-    setPage(parseInt(page + 1));
-  };
-  const prevHandler = () => {
-    setPage(parseInt(page - 1));
-  };
-  const specialButtonHandler = (event) => {
-    setPage(parseInt(event.target.value));
-  };
-  const mediaTypeHandler = (event) => {
-    setMediaType(event);
-  };
-  const trendingPeriodHandler = (event) => {
-    setPeriod(event);
-  };
-  const yearHandler = (year) => {
+  }, [movies]);
+  useEffect(() => {
     setFilteredMovies(
       movies.filter((item) => {
         if (year !== "all") {
@@ -56,6 +53,26 @@ const MainPage = () => {
         }
       })
     );
+  }, [mediaType, movies, year, period]);
+  const nextHandler = () => {
+    setPage(parseInt(page + 1));
+  };
+  const prevHandler = () => {
+    setPage(parseInt(page - 1));
+  };
+  const specialButtonHandler = (event) => {
+    setPage(parseInt(event.target.value));
+  };
+  const mediaTypeHandler = (event) => {
+    setYear("all");
+    setMediaType(event);
+  };
+  const trendingPeriodHandler = (event) => {
+    setYear("all");
+    setPeriod(event);
+  };
+  const yearHandler = (year) => {
+    setYear(year);
   };
   const darkModeHandler = (isDark) => {
     setDark(isDark);
