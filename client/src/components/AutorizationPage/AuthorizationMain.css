@@ -1,0 +1,41 @@
+.authorization-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.authorization-main_form {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  position: relative;
+  margin-top: 40px;
+  padding: 50px;
+  height: 600px;
+  width: 500px;
+  border-radius: 8px;
+  border: 3px solid black;
+  color: #fff;
+  background-color: #8c82eb;
+}
+.authorization-main_form-button-wrapper {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+}
+.authorization-main_form-button {
+  background-color: #406cbf;
+  border-radius: 5px;
+  border: 0;
+  padding: 10px;
+  cursor: pointer;
+}
+.authorization-main_form-inputs {
+  border-radius: 5px;
+  border: 0;
+  width: 90%;
+  height: 20px;
+  padding: 10px;
+}
+.authorization-main_form-labels {
+  margin: 10px;
+}

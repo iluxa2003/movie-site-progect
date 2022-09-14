@@ -11,7 +11,7 @@ const ActorCreditsList = (props) => {
       setCreditsCrew(response.crew);
       setCreditsCast(response.cast);
     });
-  }, [props]);
+  }, [props.id]);
   return (
     <ul className={"actor-credits-list " + props.className}>
       {creditsCrew.map((movie) => {

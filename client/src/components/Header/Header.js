@@ -59,6 +59,11 @@ const Header = (props) => {
             </button>
           </Link>
         </span>
+        <span>
+          <Link to={"../autorization"}>
+            <button>Log In</button>
+          </Link>
+        </span>
       </div>
     </header>
   );

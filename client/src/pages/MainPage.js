@@ -16,10 +16,8 @@ const MainPage = () => {
   const [moviesYears, setMoviesYears] = useState([]);
   useEffect(() => {
     FetchTrends(page, mediaType, period).then((response) => {
-      return setMovies(response.results);
-    });
-    FetchTrends(page, mediaType, period).then((response) => {
-      return setPages(response.total_pages);
+      setMovies(response.results);
+      setPages(response.total_pages);
     });
   }, [page, mediaType, period, year]);
   useEffect(() => {

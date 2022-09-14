@@ -7,7 +7,7 @@ const ActorCardList = (props) => {
     if (props.actors !== undefined) {
       setActors(props.actors);
     }
-  }, [props]);
+  }, [props.actors]);
 
   return (
     <ul className={"actor-card-list " + props.className}>
