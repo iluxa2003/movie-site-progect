@@ -2,11 +2,16 @@ import "./Header.css";
 import { Link } from "react-router-dom";
 import Search from "./Search";
 import { useState, useEffect } from "react";
-
+import accountIdFetch from "../../services/accountIdFetch";
 const Header = (props) => {
   const [dark, setDark] = useState("true");
-
+  const [sessionId, setSessionID] = useState("");
+  const [username, setUsername] = useState("");
+  const [accountId, setAccountId] = useState("");
   useEffect(() => {
+    try {
+      setSessionID(localStorage.getItem("sessionId"));
+    } catch {}
     try {
       setDark(localStorage.getItem("dark"));
     } catch {
@@ -16,6 +21,14 @@ const Header = (props) => {
   useEffect(() => {
     props.darkMode(dark);
   }, [props, dark]);
+  useEffect(() => {
+    if (sessionId.length !== 0) {
+      accountIdFetch(sessionId).then((response) => {
+        setAccountId(response.id);
+        setUsername(response.username);
+      });
+    }
+  }, [sessionId]);
   const darkModeHandler = () => {
     if (dark === "true") {
       localStorage.setItem("dark", false);
@@ -29,6 +42,12 @@ const Header = (props) => {
     try {
       props.refreshHandler();
     } catch {}
+  };
+  const logOutHandler = () => {
+    localStorage.setItem("sessionId", "");
+    setSessionID("");
+    setUsername("");
+    setAccountId("");
   };
   return (
     <header className={"header" + (dark === "true" ? " dark" : "")}>
@@ -45,6 +64,7 @@ const Header = (props) => {
             {dark === "true" ? " light" : "dark"}
           </button>
         </div>
+        {console.log(accountId)}
         <span
           className={"header__home-link" + (dark === "true" ? " dark" : "")}
         >
@@ -59,11 +79,20 @@ const Header = (props) => {
             </button>
           </Link>
         </span>
-        <span>
+        {sessionId.length !== 0 ? (
+          <span>
+            <div>{username}</div>
+          </span>
+        ) : (
+          ""
+        )}
+        {sessionId.length !== 0 ? (
+          <button onClick={logOutHandler}>Log Out</button>
+        ) : (
           <Link to={"../autorization"}>
             <button>Log In</button>
           </Link>
-        </span>
+        )}
       </div>
     </header>
   );

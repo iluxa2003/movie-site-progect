@@ -1,10 +1,12 @@
 import "./AuthorizationMain.css";
 import { useState, useEffect } from "react";
 import authorizationTokenFetch from "../../services/authorizationTokenFetch";
-const AuthorizationMain = () => {
+
+const AuthorizationMain = (props) => {
   const [password, setPassword] = useState("");
   const [userName, setUserName] = useState("");
   const [regToken, setRegToken] = useState("");
+  const [sessionId, setSessionID] = useState("");
   const userNameHandler = (event) => {
     setUserName(event.target.value);
   };
@@ -16,6 +18,9 @@ const AuthorizationMain = () => {
       setRegToken(response.request_token);
     });
   }, []);
+  useEffect(() => {
+    props.ssesionIDHandler(sessionId);
+  }, [sessionId, props]);
   const submitBottomHandler = async (event) => {
     event.preventDefault();
     let regToken2 = "";
@@ -58,7 +63,12 @@ const AuthorizationMain = () => {
       secondOptions
     )
       .then((response) => response.json())
-      .then((post) => console.log(post));
+      .then((post) => {
+        setSessionID(post.session_id);
+        if (post.success !== false) {
+          window.location.assign("./");
+        }
+      });
   };
   return (
     <main className="authorization-main">
