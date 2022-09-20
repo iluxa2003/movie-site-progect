@@ -7,7 +7,7 @@ import Header from "../components/Header/Header";
 import MovieMain from "../components/MovieDetails/MovieMain";
 const MovieDetails = (props) => {
   const { id } = useParams();
-
+  const [accountId, setAccountId] = useState("");
   const [movieInfo, setMovieInfo] = useState([]);
   const [actors, setActors] = useState([]);
   const [dark, setDark] = useState("");
@@ -25,11 +25,20 @@ const MovieDetails = (props) => {
   const darkModeHandler = (isDark) => {
     setDark(isDark);
   };
+  const accountIdHandler = (obj) => {
+    setAccountId(obj);
+  };
   return (
     <div>
-      <Header darkMode={darkModeHandler} />
+      <Header darkMode={darkModeHandler} accountID={accountIdHandler} />
 
-      <MovieMain dark={dark} info={movieInfo} actors={actors} />
+      <MovieMain
+        dark={dark}
+        info={movieInfo}
+        actors={actors}
+        accountID={accountId}
+        id={id}
+      />
     </div>
   );
 };

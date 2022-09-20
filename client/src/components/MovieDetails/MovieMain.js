@@ -9,8 +9,13 @@ const MovieMain = (props) => {
   const [backgroundImage, setBackgroundImage] = useState();
   const [posterImage, setPosterImage] = useState();
   const [dark, setDark] = useState("");
+  const [accountId, setAccountId] = useState("");
+  const [id, setId] = useState("");
+
   useEffect(() => {
+    setId(props.id);
     setDark(props.dark);
+    setAccountId(props.accountId);
     if (info.length !== 0) {
       setGenres(info.genres);
       setCompanies(info.production_companies);
@@ -33,7 +38,27 @@ const MovieMain = (props) => {
       }
     }
   }, [props, info]);
+  const favourite = () => {
+    const postToAdd = {
+      media_type: "movie",
+      media_id: id,
+      favorite: true,
+    };
 
+    const options = {
+      method: "POST",
+      body: JSON.stringify(postToAdd),
+      headers: {
+        "Content-Type": "application/json; charset=UTF-8",
+      },
+    };
+    fetch(
+      "https://api.themoviedb.org/3/account/" +
+        { accountId } +
+        "/favorite?api_key=f1c9e198351fb99a7484d861b34f1dff",
+      options
+    );
+  };
   return (
     <main>
       <section
@@ -68,6 +93,12 @@ const MovieMain = (props) => {
                   })}
                 </ul>
               </span>
+              {accountId != "" ? (
+                <button onClick={favourite}>Add to favorite</button>
+              ) : (
+                ""
+              )}
+
               <p className="movie-main__tagline">{info.tagline}</p>
               <h3>Overview:</h3>
               <p>{info.overview}</p>

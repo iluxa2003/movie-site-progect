@@ -49,6 +49,12 @@ const Header = (props) => {
     setUsername("");
     setAccountId("");
   };
+
+  try {
+    const accountIdHandler = () => {
+      props.accountID(accountId);
+    };
+  } catch {}
   return (
     <header className={"header" + (dark === "true" ? " dark" : "")}>
       <style>{`body{background-color:${
@@ -64,7 +70,6 @@ const Header = (props) => {
             {dark === "true" ? " light" : "dark"}
           </button>
         </div>
-        {console.log(accountId)}
         <span
           className={"header__home-link" + (dark === "true" ? " dark" : "")}
         >

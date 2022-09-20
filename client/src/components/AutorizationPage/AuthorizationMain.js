@@ -74,7 +74,10 @@ const AuthorizationMain = (props) => {
     <main className="authorization-main">
       <form className="authorization-main_form" onSubmit={submitBottomHandler}>
         <h1>Welcome!</h1>
-        <div></div>
+        <div>
+          Please, use your account from
+          <a href="https://www.themoviedb.org/login">themoviedb.org</a>
+        </div>
         <label className="authorization-main_form-labels">
           <div>Name</div>
 
