@@ -19,6 +19,11 @@ const Header = (props) => {
     }
   }, [props]);
   useEffect(() => {
+    try {
+      props.accountID(accountId);
+    } catch {}
+  }, [accountId]);
+  useEffect(() => {
     props.darkMode(dark);
   }, [props, dark]);
   useEffect(() => {
@@ -50,13 +55,9 @@ const Header = (props) => {
     setAccountId("");
   };
 
-  try {
-    const accountIdHandler = () => {
-      props.accountID(accountId);
-    };
-  } catch {}
   return (
     <header className={"header" + (dark === "true" ? " dark" : "")}>
+      {console.log(sessionId)}
       <style>{`body{background-color:${
         dark === "true" ? "#272532" : "#f5f4fa"
       }}`}</style>

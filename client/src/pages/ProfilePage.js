@@ -4,18 +4,11 @@ import soloMovieFetch from "../services/soloMovieFetch";
 
 import actorsFetch from "../services/actorsFetch";
 import Header from "../components/Header/Header";
-import MovieMain from "../components/MovieDetails/MovieMain";
+
 const MovieDetails = (props) => {
-  const { id } = useParams();
   const [accountId, setAccountId] = useState("");
   const [movieInfo, setMovieInfo] = useState([]);
-  const [actors, setActors] = useState([]);
   const [dark, setDark] = useState("");
-  useEffect(() => {
-    actorsFetch(id, "movie").then((response) => {
-      return setActors(response.cast);
-    });
-  }, [id]);
 
   useEffect(() => {
     soloMovieFetch(id).then((response) => {
@@ -31,13 +24,6 @@ const MovieDetails = (props) => {
   return (
     <div>
       <Header darkMode={darkModeHandler} accountID={accountIdHandler} />
-      <MovieMain
-        dark={dark}
-        info={movieInfo}
-        actors={actors}
-        accountID={accountId}
-        id={id}
-      />
     </div>
   );
 };

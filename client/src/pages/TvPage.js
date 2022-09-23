@@ -6,7 +6,7 @@ import soloTvFetch from "../services/soloTvFetch";
 import TvMain from "../components/TvPage/TvMain";
 const TvPage = () => {
   const { id } = useParams();
-
+  const [accountId, setAccountId] = useState("");
   const [tvInfo, setTvInfo] = useState([]);
   const [actors, setActors] = useState([]);
   const [dark, setDark] = useState("");
@@ -24,11 +24,20 @@ const TvPage = () => {
   const darkModeHandler = (isDark) => {
     setDark(isDark);
   };
+  const accountIdHandler = (obj) => {
+    setAccountId(obj);
+  };
   return (
     <div>
-      <Header darkMode={darkModeHandler} />
+      <Header darkMode={darkModeHandler} accountID={accountIdHandler} />
       <main>
-        <TvMain dark={dark} info={tvInfo} actors={actors} />
+        <TvMain
+          dark={dark}
+          info={tvInfo}
+          actors={actors}
+          accountID={accountId}
+          id={id}
+        />
       </main>
     </div>
   );

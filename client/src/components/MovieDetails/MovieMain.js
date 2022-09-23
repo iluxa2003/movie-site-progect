@@ -11,11 +11,8 @@ const MovieMain = (props) => {
   const [dark, setDark] = useState("");
   const [accountId, setAccountId] = useState("");
   const [id, setId] = useState("");
-
+  const [sessionId, setSessionId] = useState("");
   useEffect(() => {
-    setId(props.id);
-    setDark(props.dark);
-    setAccountId(props.accountId);
     if (info.length !== 0) {
       setGenres(info.genres);
       setCompanies(info.production_companies);
@@ -37,7 +34,13 @@ const MovieMain = (props) => {
         );
       }
     }
-  }, [props, info]);
+  }, [info]);
+  useEffect(() => {
+    setId(props.id);
+    setDark(props.dark);
+    setAccountId(props.accountID);
+    setSessionId(localStorage.getItem("sessionId"));
+  }, [props]);
   const favourite = () => {
     const postToAdd = {
       media_type: "movie",
@@ -54,8 +57,9 @@ const MovieMain = (props) => {
     };
     fetch(
       "https://api.themoviedb.org/3/account/" +
-        { accountId } +
-        "/favorite?api_key=f1c9e198351fb99a7484d861b34f1dff",
+        accountId +
+        "/favorite?api_key=f1c9e198351fb99a7484d861b34f1dff&session_id=" +
+        sessionId,
       options
     );
   };
