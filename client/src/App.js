@@ -5,6 +5,7 @@ import MainPage from "./pages/MainPage";
 import TvPage from "./pages/TvPage";
 import ActorPage from "./pages/ActorPage";
 import AuthorizationPage from "./pages/AuthorizationPage";
+import ProfilePage from "./pages/ProfilePage";
 function App() {
   return (
     <Router>
@@ -14,6 +15,7 @@ function App() {
         <Route path="/movie/:id" element={<MovieDetails />} />
         <Route path="" element={<MainPage />} />
         <Route path="/autorization" element={<AuthorizationPage />} />
+        <Route path="/account" element={<ProfilePage />} />
       </Routes>
     </Router>
   );

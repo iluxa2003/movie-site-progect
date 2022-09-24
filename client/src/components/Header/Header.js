@@ -57,7 +57,6 @@ const Header = (props) => {
 
   return (
     <header className={"header" + (dark === "true" ? " dark" : "")}>
-      {console.log(sessionId)}
       <style>{`body{background-color:${
         dark === "true" ? "#272532" : "#f5f4fa"
       }}`}</style>
@@ -87,7 +86,9 @@ const Header = (props) => {
         </span>
         {sessionId.length !== 0 ? (
           <span>
-            <div>{username}</div>
+            <Link to={"../account"}>
+              <div>{username}</div>
+            </Link>
           </span>
         ) : (
           ""

@@ -1,20 +1,26 @@
-import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
-import soloMovieFetch from "../services/soloMovieFetch";
 
-import actorsFetch from "../services/actorsFetch";
 import Header from "../components/Header/Header";
-
-const MovieDetails = (props) => {
+import accountFavoriteFetch from "../services/accountFavoriteFetch";
+const ProfilePage = (props) => {
   const [accountId, setAccountId] = useState("");
-  const [movieInfo, setMovieInfo] = useState([]);
+  const [sessionID, setSessionID] = useState("");
   const [dark, setDark] = useState("");
-
+  const [likedMovies, setLikedMovies] = useState([]);
+  const [likedTV, setLikedTV] = useState([]);
   useEffect(() => {
-    soloMovieFetch(id).then((response) => {
-      return setMovieInfo(response);
-    });
-  }, [id]);
+    setSessionID(localStorage.getItem("sessionId"));
+  }, []);
+  useEffect(() => {
+    if (sessionID != "" && accountId != "") {
+      accountFavoriteFetch(sessionID, accountId, "movies").then((response) => {
+        return setLikedMovies(response.results);
+      });
+      accountFavoriteFetch(sessionID, accountId, "tv").then((response) => {
+        return setLikedTV(response.results);
+      });
+    }
+  }, [sessionID, accountId]);
   const darkModeHandler = (isDark) => {
     setDark(isDark);
   };
@@ -28,4 +34,4 @@ const MovieDetails = (props) => {
   );
 };
 
-export default MovieDetails;
+export default ProfilePage;
