@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 
 import Header from "../components/Header/Header";
+import ProfilePageMain from "../components/ProfilePage/ProfilePageMain";
 import accountFavoriteFetch from "../services/accountFavoriteFetch";
 const ProfilePage = (props) => {
   const [accountId, setAccountId] = useState("");
@@ -30,6 +31,7 @@ const ProfilePage = (props) => {
   return (
     <div>
       <Header darkMode={darkModeHandler} accountID={accountIdHandler} />
+      <ProfilePageMain dark={dark} movies={likedMovies} tv={likedTV} />
     </div>
   );
 };

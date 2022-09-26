@@ -1,0 +1,14 @@
+.favorite-list {
+  max-width: 500px;
+  overflow-y: hidden;
+  overflow-x: scroll;
+  padding: 10px;
+  display: flex;
+  flex-direction: row;
+}
+.favorite-list-title {
+  color: black;
+}
+.favorite-list-title.dark {
+  color: white;
+}
