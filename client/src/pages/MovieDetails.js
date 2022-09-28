@@ -11,6 +11,7 @@ const MovieDetails = (props) => {
   const [movieInfo, setMovieInfo] = useState([]);
   const [actors, setActors] = useState([]);
   const [dark, setDark] = useState("");
+  const [userName, setUserName] = useState("");
   useEffect(() => {
     actorsFetch(id, "movie").then((response) => {
       return setActors(response.cast);
@@ -28,14 +29,22 @@ const MovieDetails = (props) => {
   const accountIdHandler = (obj) => {
     setAccountId(obj);
   };
+  const userNameHandler = (obj) => {
+    setUserName(obj);
+  };
   return (
     <div>
-      <Header darkMode={darkModeHandler} accountID={accountIdHandler} />
+      <Header
+        darkMode={darkModeHandler}
+        accountID={accountIdHandler}
+        userName={userNameHandler}
+      />
       <MovieMain
         dark={dark}
         info={movieInfo}
         actors={actors}
         accountID={accountId}
+        userName={userName}
         id={id}
       />
     </div>

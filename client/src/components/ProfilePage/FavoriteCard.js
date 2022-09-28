@@ -12,7 +12,7 @@ const FavoriteCard = (props) => {
     if (props.item !== undefined) {
       setTitle(props.item.name || props.item.title);
       setId(props.item.id);
-      setMedia(props.madia);
+      setMedia(props.media);
       if (props.item.poster_path !== null) {
         setPosterImage(
           "https://image.tmdb.org/t/p/w138_and_h175_bestv2/" +
@@ -28,7 +28,6 @@ const FavoriteCard = (props) => {
 
   return (
     <li className={"favorite-card" + (dark === "true" ? " dark" : "")}>
-      {console.log(props.item)}
       <Link to={"../" + media + "/" + id}>
         <figure>
           <img

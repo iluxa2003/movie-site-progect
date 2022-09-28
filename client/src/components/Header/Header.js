@@ -22,7 +22,10 @@ const Header = (props) => {
     try {
       props.accountID(accountId);
     } catch {}
-  }, [accountId]);
+    try {
+      props.userName(username);
+    } catch {}
+  }, [accountId, props, username]);
   useEffect(() => {
     props.darkMode(dark);
   }, [props, dark]);

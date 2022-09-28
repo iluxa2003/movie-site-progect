@@ -1,6 +1,7 @@
 import ActorCardList from "../ActorList/ActorCardList";
 import { useState, useEffect } from "react";
 import "./MovieMain.css";
+import CommentsSection from "../CommentsSection/CommentsSection";
 const MovieMain = (props) => {
   const info = props.info;
   const actors = props.actors;
@@ -97,7 +98,7 @@ const MovieMain = (props) => {
                   })}
                 </ul>
               </span>
-              {accountId != "" ? (
+              {accountId !== "" ? (
                 <button onClick={favourite}>Add to favorite</button>
               ) : (
                 ""
@@ -141,6 +142,7 @@ const MovieMain = (props) => {
           </div>
         </div>
       </section>
+      <CommentsSection userName={props.userName} />
     </main>
   );
 };

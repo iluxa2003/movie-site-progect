@@ -1,0 +1,38 @@
+figure {
+  margin: 0;
+}
+p {
+  margin: 0;
+}
+.favorite-card {
+  box-shadow: 0 2px 8px rgb(0 0 0 / 10%);
+  width: 138px;
+  list-style: none;
+  font-size: 0.9em;
+  margin: 10px;
+  border-radius: 6px;
+
+  text-decoration: none;
+  background-color: #cfaf5f;
+}
+.favorite-card__image {
+  width: 138px;
+  height: 175px;
+  vertical-align: top;
+  border-radius: 6px;
+}
+.favorite-card__description {
+  height: 80px;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  color: black;
+}
+.favorite-card.dark {
+  background-color: #13688c;
+}
+.favorite-card__description.dark {
+  color: white;
+}

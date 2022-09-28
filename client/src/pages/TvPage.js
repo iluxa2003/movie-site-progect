@@ -10,6 +10,7 @@ const TvPage = () => {
   const [tvInfo, setTvInfo] = useState([]);
   const [actors, setActors] = useState([]);
   const [dark, setDark] = useState("");
+  const [userName, setUserName] = useState("");
   useEffect(() => {
     actorsFetch(id, "tv").then((response) => {
       return setActors(response.cast);
@@ -27,15 +28,23 @@ const TvPage = () => {
   const accountIdHandler = (obj) => {
     setAccountId(obj);
   };
+  const userNameHandler = (obj) => {
+    setUserName(obj);
+  };
   return (
     <div>
-      <Header darkMode={darkModeHandler} accountID={accountIdHandler} />
+      <Header
+        darkMode={darkModeHandler}
+        accountID={accountIdHandler}
+        userName={userNameHandler}
+      />
       <main>
         <TvMain
           dark={dark}
           info={tvInfo}
           actors={actors}
           accountID={accountId}
+          userName={userName}
           id={id}
         />
       </main>

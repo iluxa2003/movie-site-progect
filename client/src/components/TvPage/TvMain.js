@@ -1,4 +1,5 @@
 import ActorCardList from "../ActorList/ActorCardList";
+import CommentsSection from "../CommentsSection/CommentsSection";
 import { useState, useEffect } from "react";
 import "./TvMain.css";
 const TvMain = (props) => {
@@ -102,7 +103,7 @@ const TvMain = (props) => {
                   })}
                 </ul>
               </span>
-              {accountId != "" ? (
+              {accountId !== "" ? (
                 <button onClick={favourite}>Add to favorite</button>
               ) : (
                 ""
@@ -145,6 +146,7 @@ const TvMain = (props) => {
           </div>
         </div>
       </section>
+      <CommentsSection userName={props.userName} />
     </main>
   );
 };

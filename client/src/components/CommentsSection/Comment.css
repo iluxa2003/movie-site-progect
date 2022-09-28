@@ -1,0 +1,16 @@
+.comment {
+  word-break: break-all;
+  max-width: 600px;
+  width: fit-content;
+  padding: 10px;
+  margin: 10px;
+  border-radius: 7px;
+  display: flex;
+  flex-direction: column;
+  color: white;
+  background-color: #2196f3;
+}
+.comment__text {
+  margin-top: 5px;
+  color: black;
+}
