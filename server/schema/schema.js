@@ -1,5 +1,6 @@
 const graphql = require("graphql");
-const users = require("../models/user");
+const comment = require("../models/comment");
+const comments = require("../models/comment");
 const {
   GraphQLObjectType,
   GraphQLString,
@@ -8,30 +9,35 @@ const {
   GraphQLID,
 } = graphql;
 
-const userType = new GraphQLObjectType({
-  name: "user",
+const commentType = new GraphQLObjectType({
+  name: "comment",
   fields: () => ({
-    name: { type: GraphQLString },
-    password: { type: GraphQLString },
-    id: { type: GraphQLID },
+    movie_id: { type: GraphQLString },
+    userName: { type: GraphQLString },
+    rating: { type: GraphQLString },
+    comment: { type: GraphQLString },
   }),
 });
 
 const Mutation = new GraphQLObjectType({
   name: "Mutation",
   fields: () => ({
-    adduser: {
-      type: userType,
+    addComment: {
+      type: commentType,
       args: {
-        name: { type: GraphQLString },
-        password: { type: GraphQLString },
+        movie_id: { type: GraphQLString },
+        userName: { type: GraphQLString },
+        rating: { type: GraphQLString },
+        comment: { type: GraphQLString },
       },
       resolve(parent, args) {
-        const user = new users({
-          name: args.name,
-          password: args.password,
+        const comment = new comments({
+          movie_id: args.movie_id,
+          userName: args.userName,
+          rating: args.rating,
+          comment: args.comment,
         });
-        return user.save();
+        return comment.save();
       },
     },
   }),
@@ -40,10 +46,11 @@ const Mutation = new GraphQLObjectType({
 const Query = new GraphQLObjectType({
   name: "Query",
   fields: () => ({
-    user: {
-      type: new GraphQLList(userType),
+    comment: {
+      type: new GraphQLList(commentType),
+      args: { id: { type: GraphQLID } },
       resolve(parent, args) {
-        return users.find({});
+        return comments.find({ movie_id: args.id });
       },
     },
   }),

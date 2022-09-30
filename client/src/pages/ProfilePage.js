@@ -13,7 +13,7 @@ const ProfilePage = (props) => {
     setSessionID(localStorage.getItem("sessionId"));
   }, []);
   useEffect(() => {
-    if (sessionID != "" && accountId != "") {
+    if (sessionID !== "" && accountId !== "") {
       accountFavoriteFetch(sessionID, accountId, "movies").then((response) => {
         return setLikedMovies(response.results);
       });

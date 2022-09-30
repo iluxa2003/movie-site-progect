@@ -142,7 +142,7 @@ const MovieMain = (props) => {
           </div>
         </div>
       </section>
-      <CommentsSection userName={props.userName} />
+      <CommentsSection userName={props.userName} id={props.id} />
     </main>
   );
 };

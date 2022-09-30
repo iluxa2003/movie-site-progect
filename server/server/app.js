@@ -6,7 +6,7 @@ const cors = require("cors");
 const app = express();
 const PORT = 3005;
 mongoose.connect(
-  "mongodb+srv://ilya:1111@cluster0.nvhgwsm.mongodb.net/my-data-base?retryWrites=true&w=majority"
+  "mongodb+srv://ilya:1111@cluster0.nvhgwsm.mongodb.net/movie-site-DB?retryWrites=true&w=majority"
 );
 app.use(cors());
 app.use("/graphql", graphqlHTTP({ schema, graphiql: true }));
@@ -15,5 +15,5 @@ const dbConnection = mongoose.connection;
 dbConnection.on("error", (err) => console.log("Connection error: " + err));
 dbConnection.once("open", () => console.log("connected"));
 app.listen(PORT, (err) => {
-  err ? console.log(err) : console.log("Server started, finaly.....");
+  err ? console.log(err) : console.log("Server started");
 });

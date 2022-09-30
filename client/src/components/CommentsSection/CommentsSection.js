@@ -1,22 +1,52 @@
 import "./CommentsSection.css";
 import Comment from "./Comment";
-import { useState } from "react";
+import { commentsQuery, commentsMutation } from "./queries";
+import { useState, useEffect } from "react";
+// import { graphql } from "graphql";
+import { useQuery, useMutation } from "@apollo/client";
+
 const CommentsSection = (props) => {
   const [comment, setComment] = useState("");
-
+  const [id, setId] = useState("");
   const [messages, setMessages] = useState([]);
   const [review, setReview] = useState("1 star");
+  const { loading, error, data } = useQuery(commentsQuery, {
+    variables: { id },
+  });
+  const [addComment, { comdata, comloading, comerror }] =
+    useMutation(commentsMutation);
+  useEffect(() => {
+    setId(props.id);
+  }, [props]);
+  useEffect(() => {
+    if (typeof data == "object") {
+      data.comment.map((comment) => {
+        return setMessages((prevMessages) => {
+          return [...prevMessages, comment];
+        });
+      });
+    }
+  }, [data]);
   const commentHandler = (event) => {
     setComment(event.target.value);
   };
   const commentAddHandler = () => {
     const message = {
-      review: review,
+      movie_id: id,
+      rating: review,
       userName: props.userName,
       comment: comment,
     };
     setMessages((prevMessages) => {
       return [...prevMessages, message];
+    });
+    addComment({
+      variables: {
+        id: id,
+        stars: review,
+        username: props.userName,
+        comment: comment,
+      },
     });
     refresh();
   };
@@ -29,6 +59,7 @@ const CommentsSection = (props) => {
   };
   return (
     <section className="comments-section">
+      {console.log(id, typeof id)}
       <h1>User comments</h1>
       <div className="comments-section__comment-editor-wrapper">
         <textarea

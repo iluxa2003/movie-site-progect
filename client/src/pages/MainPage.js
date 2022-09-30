@@ -4,7 +4,7 @@ import MovieList from "../components/MainPage/MovieList";
 import Header from "../components/Header/Header";
 import Pagination from "../components/MainPage/Pagination";
 import MovieFilter from "../components/MainPage/MovieFilter";
-const MainPage = () => {
+const MainPage = (props) => {
   const [page, setPage] = useState(1);
   const [movies, setMovies] = useState([]);
   const [pages, setPages] = useState(0);
