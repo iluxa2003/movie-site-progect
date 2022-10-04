@@ -2,7 +2,6 @@ import "./CommentsSection.css";
 import Comment from "./Comment";
 import { commentsQuery, commentsMutation } from "./queries";
 import { useState, useEffect } from "react";
-// import { graphql } from "graphql";
 import { useQuery, useMutation } from "@apollo/client";
 
 const CommentsSection = (props) => {
@@ -13,8 +12,7 @@ const CommentsSection = (props) => {
   const { loading, error, data } = useQuery(commentsQuery, {
     variables: { id },
   });
-  const [addComment, { comdata, comloading, comerror }] =
-    useMutation(commentsMutation);
+  const [addComment] = useMutation(commentsMutation);
   useEffect(() => {
     setId(props.id);
   }, [props]);
@@ -37,9 +35,6 @@ const CommentsSection = (props) => {
       userName: props.userName,
       comment: comment,
     };
-    setMessages((prevMessages) => {
-      return [...prevMessages, message];
-    });
     addComment({
       variables: {
         id: id,
@@ -49,6 +44,13 @@ const CommentsSection = (props) => {
       },
     });
     refresh();
+    if (error !== undefined) {
+      return console.log(error);
+    }
+    while (loading === true) {}
+    setMessages((prevMessages) => {
+      return [...prevMessages, message];
+    });
   };
   const reviewHandler = (event) => {
     setReview(event.target.value);
@@ -59,7 +61,6 @@ const CommentsSection = (props) => {
   };
   return (
     <section className="comments-section">
-      {console.log(id, typeof id)}
       <h1>User comments</h1>
       <div className="comments-section__comment-editor-wrapper">
         <textarea
